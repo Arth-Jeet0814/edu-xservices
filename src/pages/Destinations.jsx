@@ -48,9 +48,9 @@ function DestinationsPage() {
           <div className="text-center max-w-3xl mx-auto mb-10">
             <SectionHeading
               align="center"
-              eyebrow="Institutional Cohorts & Destinations"
-              title="Compare Global Destinations with our International Directorate"
-              description="Discuss pathway alignment, bilateral visa compliance, and destination-specific university placement cohorts."
+              eyebrow="Explore Global Destinations"
+              title="Plan Your International Study Journey"
+              description="Discuss university options, tuition budgets, visa requirements, and post-study opportunities with our Dakar advisory team."
             />
           </div>
           <EnquiryForm />

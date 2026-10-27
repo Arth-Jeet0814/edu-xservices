@@ -19,17 +19,17 @@ function EventsPage() {
         <div className="container-page relative z-10 text-center max-w-3xl animate-fade-in-up">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[#E8A0B0] text-xs font-bold tracking-wide uppercase mb-4 animate-pulse-subtle">
             <CalendarDays className="size-3.5 text-emerald-400" />
-            <span>Institutional Summits &amp; Forums</span>
+            <span>Fairs, Webinars &amp; Information Sessions</span>
           </div>
           <h1 className="text-3xl font-extrabold sm:text-5xl text-white tracking-tight leading-tight">
-            Upcoming Institutional{" "}
+            Upcoming Student &amp; Parent{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-200 to-amber-200 animate-gradient-shift">
               Events &amp; Expos
             </span>
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
-            Meet selective university delegates in person, attend closed-door principal briefings,
-            and access spot assessments through Education eXcellence Services.
+            Meet university representatives, attend live visa guidance sessions, and learn about
+            merit scholarships directly from Education eXcellence Services advisors.
           </p>
         </div>
       </section>

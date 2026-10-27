@@ -248,12 +248,10 @@
 @keyframes pulse-subtle {
   0%,
   100% {
-    opacity: 1;
-    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(178, 25, 65, 0);
   }
   50% {
-    opacity: 0.88;
-    transform: scale(1.03);
+    box-shadow: 0 0 0 5px rgba(178, 25, 65, 0.2);
   }
 }
 
@@ -349,13 +347,18 @@
 }
 
 @utility btn-interactive {
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.15s ease, border-color 0.15s ease;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 20px -5px rgba(178, 25, 65, 0.35);
+    box-shadow: 0 8px 18px -4px rgba(178, 25, 65, 0.35);
   }
   &:active {
-    transform: translateY(1px) scale(0.98);
+    transform: translateY(0);
   }
 }
 

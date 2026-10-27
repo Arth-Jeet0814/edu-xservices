@@ -10,8 +10,8 @@ const navItems = [
   { label: "Destinations", to: "/destinations" },
   { label: "Course Finder", to: "/courses" },
   { label: "Universities", to: "/universities" },
-  { label: "Institutional Services", to: "/services" },
-  { label: "Insights", to: "/blogs" },
+  { label: "Services", to: "/services" },
+  { label: "Guides", to: "/blogs" },
   { label: "Events", to: "/events" },
   { label: "Contact", to: "/contact" },
 ];
@@ -40,9 +40,9 @@ export function Header() {
           <Button
             asChild
             size="sm"
-            className="btn-interactive animate-pulse-subtle bg-[#B21941] hover:bg-[#8e1233] text-white text-xs font-bold rounded-xl shadow-md hover:shadow-[#B21941]/30 transition-all"
+            className="btn-interactive bg-[#B21941] hover:bg-[#8e1233] text-white text-xs font-bold rounded-xl shadow-md hover:shadow-[#B21941]/30 transition-all"
           >
-            <Link to="/contact">Book A Meeting</Link>
+            <Link to="/contact">Book Free Consultation</Link>
           </Button>
         </div>
 
@@ -77,7 +77,7 @@ export function Header() {
                 className="bg-[#B21941] hover:bg-[#8e1233] text-white font-bold"
                 onClick={() => setOpen(false)}
               >
-                <Link to="/contact">Book A Meeting</Link>
+                <Link to="/contact">Book Free Consultation</Link>
               </Button>
             </div>
           </SheetContent>

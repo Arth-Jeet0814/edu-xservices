@@ -4,9 +4,9 @@ import blogPlanning from "@/assets/blog-planning.jpg";
 import blogScholarship from "@/assets/blog-scholarship.jpg";
 import { Button } from "@/components/ui/button";
 import { blogs } from "@/data/site";
-const title = "Institutional Insights & Briefings | Education eXcellence Services";
+const title = "Study Abroad Guides & Resources | Education eXcellence Services";
 const description =
-  "Practical governance guides, visa compliance frameworks, and scholarship advisories from Education eXcellence Services.";
+  "Practical admissions guides, visa advice, and scholarship resources for African students and parents from Education eXcellence Services.";
 const images = {
   "blog-visa": blogVisa,
   "blog-planning": blogPlanning,
@@ -25,17 +25,17 @@ function BlogsPage() {
         <div className="container-page relative z-10 text-center max-w-3xl animate-fade-in-up">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[#E8A0B0] text-xs font-bold tracking-wide uppercase mb-4 animate-pulse-subtle">
             <BookOpen className="size-3.5 text-[#B21941]" />
-            <span>Governance, Compliance &amp; Insights</span>
+            <span>Practical Guidance for Students &amp; Families</span>
           </div>
           <h1 className="text-3xl font-extrabold sm:text-5xl text-white tracking-tight leading-tight">
-            Institutional Insights &amp;{" "}
+            Study Abroad Guides &amp;{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-200 to-amber-200 animate-gradient-shift">
-              Admissions Briefings
+              Admissions Advice
             </span>
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
-            Strategic analysis, student visa compliance frameworks, and merit fellowship guides
-            curated for school leadership and college counsellors.
+            Strategic advice, student visa preparation tips, and merit scholarship guides
+            written for students and parents planning their university journey in North America.
           </p>
         </div>
       </section>

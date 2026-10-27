@@ -108,7 +108,7 @@ function UniversitiesPage() {
           <Button
             asChild
             size="lg"
-            className="btn-interactive animate-pulse-subtle mt-8 bg-[#B21941] hover:bg-[#8e1233] text-white font-bold rounded-xl shadow-lg hover:shadow-[#B21941]/30"
+            className="btn-interactive mt-8 bg-[#B21941] hover:bg-[#8e1233] text-white font-bold rounded-xl shadow-md hover:shadow-[#B21941]/30"
           >
             <Link to="/contact">Ask a Counsellor</Link>
           </Button>

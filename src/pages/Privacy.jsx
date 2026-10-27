@@ -2,7 +2,8 @@ import { ShieldCheck } from "lucide-react";
 import { contactInfo } from "@/data/site";
 const title = "Privacy Policy | Education eXcellence Services";
 const description =
-  "How Education eXcellence Services collects, uses, and safeguards institutional and student information.";
+  "How Education eXcellence Services collects, uses, and safeguards student and family information.";
+
 function PrivacyPage() {
   return (
     <>
@@ -11,14 +12,14 @@ function PrivacyPage() {
         <div className="container-page relative z-10 text-center max-w-3xl">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[#E8A0B0] text-xs font-bold tracking-wide uppercase mb-4">
             <ShieldCheck className="size-3.5 text-emerald-400" />
-            <span>Governance &amp; Data Protection</span>
+            <span>Student &amp; Family Data Protection</span>
           </div>
           <h1 className="text-3xl font-extrabold sm:text-5xl text-white tracking-tight leading-tight">
             Privacy Policy
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
-            How Education eXcellence Services collects, uses, and safeguards institutional and
-            student information.
+            How Education eXcellence Services collects, uses, and safeguards student and family
+            information.
           </p>
         </div>
       </section>
@@ -26,10 +27,10 @@ function PrivacyPage() {
       <section className="section container-page max-w-3xl py-14">
         <div className="rounded-3xl border border-border bg-card p-8 shadow-sm space-y-6 text-sm leading-relaxed text-muted-foreground">
           <p>
-            We collect the details you submit through enquiry and consultation forms — name,
-            academic credentials, contact details, preferred destinations, courses, and intakes —
-            solely to provide institutional pathway coordination, counselling, and admission
-            transmittal support.
+            We collect the details you submit through consultation and inquiry forms — name,
+            academic credentials, parent contact details, preferred destinations, courses, and intakes —
+            solely to provide personalized study abroad counselling, visa preparation, and admissions
+            guidance.
           </p>
           <p>
             Your information is shared with verified partner universities only when you request

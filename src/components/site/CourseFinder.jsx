@@ -51,22 +51,14 @@ export function CourseFinder({ lockedCountry }) {
   const [enquiryCourse, setEnquiryCourse] = useState(null);
   const [submittingEnquiry, setSubmittingEnquiry] = useState(false);
   const defaultEnquiryState = {
-    institutionName: "",
-    institutionType: "",
-    ownershipType: "",
-    curriculumType: "",
-    institutionalPositioning: "",
-    mainLanguage: "",
-    country: "",
-    studentPopulation: "",
-    internationalOrientation: "",
-    parentMarketType: "",
-    contactFullName: "",
-    decisionMakerType: "",
-    contactTitle: "",
+    submitterType: "student",
+    studentName: "",
+    parentName: "",
     email: "",
     phone: "",
-    whySeeking: "",
+    residenceCountry: "Senegal",
+    targetIntake: "Fall 2025",
+    message: "",
   };
   const [enquiryForm, setEnquiryForm] = useState(defaultEnquiryState);
   // Load filter options on mount
@@ -227,78 +219,55 @@ export function CourseFinder({ lockedCountry }) {
     }
   };
   // Handle open enquiry modal
-  // Handle open enquiry modal
   const openEnquiry = (course) => {
     setEnquiryCourse(course);
     setEnquiryForm({
-      institutionName: course?.university || "Academic Institution",
-      institutionType: "",
-      ownershipType: "",
-      curriculumType: "",
-      institutionalPositioning: "",
-      mainLanguage: "",
-      country: course?.country || "",
-      studentPopulation: "",
-      internationalOrientation: "",
-      parentMarketType: "",
-      contactFullName: "",
-      decisionMakerType: "",
-      contactTitle: "",
+      submitterType: "student",
+      studentName: "",
+      parentName: "",
       email: "",
       phone: "",
-      whySeeking: course
-        ? `Seeking institutional partnership for degree cohort: ${course.name} at ${course.university} (${course.country || "Global"})`
+      residenceCountry: "Senegal",
+      targetIntake: "Fall 2025",
+      message: course
+        ? `Hello, I would like more information on admission requirements, tuition fees, and scholarship opportunities for ${course.name} at ${course.university} (${course.country || "Global"}).`
         : "",
     });
   };
   // Submit enquiry form
   const handleEnquirySubmit = async (e) => {
     e.preventDefault();
-    if (!enquiryForm.contactFullName || !enquiryForm.email || !enquiryForm.phone) {
-      toast.error("Please fill in contact full name, email, and phone / WhatsApp number.");
+    if (!enquiryForm.studentName || !enquiryForm.email || !enquiryForm.phone) {
+      toast.error("Please fill in your name, email, and phone / WhatsApp number.");
       return;
     }
     setSubmittingEnquiry(true);
     try {
-      const res = await fetch(`${BACKEND_BASE}/submit_enquiry.php`, {
+      await fetch(`${BACKEND_BASE}/submit_enquiry.php`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          fullName: enquiryForm.contactFullName,
+          fullName: enquiryForm.studentName,
+          parentName: enquiryForm.parentName,
+          submitterType: enquiryForm.submitterType,
           email: enquiryForm.email,
           phone: enquiryForm.phone,
-          institutionName: enquiryForm.institutionName,
-          institutionType: enquiryForm.institutionType,
-          ownershipType: enquiryForm.ownershipType,
-          curriculumType: enquiryForm.curriculumType,
-          institutionalPositioning: enquiryForm.institutionalPositioning,
-          mainLanguage: enquiryForm.mainLanguage,
-          country: enquiryForm.country,
-          studentPopulation: enquiryForm.studentPopulation,
-          internationalOrientation: enquiryForm.internationalOrientation,
-          parentMarketType: enquiryForm.parentMarketType,
-          contactTitle: enquiryForm.contactTitle,
-          decisionMakerType: enquiryForm.decisionMakerType,
-          notes: enquiryForm.whySeeking,
+          country: enquiryForm.residenceCountry,
+          intake: enquiryForm.targetIntake,
+          notes: enquiryForm.message,
           courseId: enquiryCourse?.id,
           courseName: enquiryCourse?.name,
           university: enquiryCourse?.university,
         }),
       });
-      if (res.ok) {
-        toast.success(
-          `Thank you ${enquiryForm.contactFullName}! Your institutional partnership request has been received under strict confidentiality.`,
-        );
-      } else {
-        toast.success(
-          `Thank you ${enquiryForm.contactFullName}! Our institutional partnerships directorate will contact you shortly.`,
-        );
-      }
+      toast.success(
+        `Thank you ${enquiryForm.studentName}! Your consultation request for ${enquiryCourse?.name} has been received. Our advisors will contact you within 24 hours.`,
+      );
       setEnquiryCourse(null);
       setEnquiryForm(defaultEnquiryState);
     } catch {
       toast.success(
-        "Request received! An Edu-X Services director will be in touch within 24 hours.",
+        "Request received! An Edu-X Services advisor will be in touch within 24 hours.",
       );
       setEnquiryCourse(null);
       setEnquiryForm(defaultEnquiryState);
@@ -952,7 +921,7 @@ export function CourseFinder({ lockedCountry }) {
               {loadingDetails ? (
                 <div className="py-12 text-center text-muted-foreground">
                   <Loader2 className="mx-auto size-6 animate-spin text-[#B21941] mb-2" />
-                  Loading institutional curriculum and requirements...
+                  Loading program curriculum and requirements...
                 </div>
               ) : activeTab === "overview" ? (
                 <div className="space-y-4">
@@ -960,7 +929,7 @@ export function CourseFinder({ lockedCountry }) {
                     <h4 className="font-bold text-foreground text-sm mb-1">Academic Overview</h4>
                     <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
                       {detailsCourse.description ||
-                        "This selective program offers rigorous academic preparation, distinguished faculty mentorship, and globally recognized credentials aligned with institutional mobility pathways."}
+                        "This selective program offers rigorous academic preparation, distinguished faculty mentorship, and globally recognized credentials that position students for successful international careers."}
                     </p>
                   </div>
                   <div className="grid grid-cols-2 gap-3 pt-3 border-t border-border">
@@ -987,12 +956,12 @@ export function CourseFinder({ lockedCountry }) {
                   <h4 className="font-bold text-foreground text-sm">Admissions Criteria</h4>
                   <p className="text-muted-foreground leading-relaxed">
                     {detailsCourse.eligibility ||
-                      "Secondary school diploma / Bachelor's degree from an accredited institution with competitive GPA. English / French proficiency documentation or verified institutional transmittal."}
+                      "Secondary school diploma / Bachelor's degree from an accredited institution with competitive GPA. English / French proficiency documentation or verified academic transcripts."}
                   </p>
                   <div className="p-4 rounded-xl bg-blue-50/60 border border-blue-200/80 text-blue-900 text-xs">
-                    <strong>Pre-Compliance Guarantee:</strong> Every candidate file is verified by
-                    the Edu-X Services admissions directorate before formal embassy and university
-                    submission to ensure a 98% visa success rate.
+                    <strong>Admissions Verification:</strong> Every student application is reviewed and
+                    prepared by our Edu-X admissions advisors prior to university and visa submission
+                    to ensure a 98% visa success rate.
                   </div>
                 </div>
               ) : (
@@ -1003,8 +972,8 @@ export function CourseFinder({ lockedCountry }) {
                       <span>Scholarship &amp; Partner Fee Waivers</span>
                     </div>
                     <p className="text-xs text-emerald-800 leading-relaxed">
-                      Applicants through Education eXcellence Services Portal receive full guidance
-                      on qualifying for institutional scholarships, partner fee waivers, and
+                      Applicants through Education eXcellence Services receive full guidance
+                      on qualifying for university scholarships, partner tuition fee waivers, and
                       external fellowships.
                     </p>
                   </div>
@@ -1050,17 +1019,17 @@ export function CourseFinder({ lockedCountry }) {
         </div>
       )}
 
-      {/* Institutional Partnership Inquiry Modal matching user spec */}
+      {/* Student & Parent Program Consultation Modal */}
       {enquiryCourse && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-3 sm:p-6 backdrop-blur-sm overflow-y-auto animate-in fade-in duration-200">
-          <div className="bg-white w-full max-w-5xl rounded-2xl border border-slate-200 shadow-2xl overflow-hidden my-auto max-h-[92vh] flex flex-col">
+          <div className="bg-white w-full max-w-2xl rounded-2xl border border-slate-200 shadow-2xl overflow-hidden my-auto max-h-[92vh] flex flex-col">
             {/* Header */}
             <div className="px-6 py-4 bg-[#F8FAFC] border-b border-slate-200 flex items-center justify-between shrink-0">
               <div>
-                <span className="text-[10px] font-bold uppercase tracking-wider text-[#0B4A99] block">
-                  Institutional Partnership · Cohort Inquiry
+                <span className="text-[10px] font-bold uppercase tracking-wider text-[#B21941] block">
+                  Student &amp; Parent Consultation Inquiry
                 </span>
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 truncate max-w-2xl">
+                <h3 className="text-base sm:text-lg font-bold text-slate-900 truncate max-w-lg">
                   {enquiryCourse.name}
                 </h3>
                 <p className="text-xs text-slate-500">
@@ -1079,371 +1048,177 @@ export function CourseFinder({ lockedCountry }) {
 
             {/* Scrollable Form Body */}
             <form onSubmit={handleEnquirySubmit} className="p-6 sm:p-8 overflow-y-auto space-y-5">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-4">
-                {/* 1. INSTITUTION NAME */}
+              {/* Submitter Toggle */}
+              <div>
+                <label className="block text-[11px] font-bold tracking-wider text-slate-700 uppercase mb-2">
+                  I AM COMPLETING THIS AS <span className="text-[#B21941]">*</span>
+                </label>
+                <div className="grid grid-cols-2 gap-3">
+                  <button
+                    type="button"
+                    onClick={() => setEnquiryForm({ ...enquiryForm, submitterType: "student" })}
+                    className={`h-11 rounded-xl font-bold text-xs transition-all flex items-center justify-center border ${
+                      enquiryForm.submitterType === "student"
+                        ? "bg-[#061A3A] text-white border-[#061A3A] shadow-sm"
+                        : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"
+                    }`}
+                  >
+                    A Student
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setEnquiryForm({ ...enquiryForm, submitterType: "parent" })}
+                    className={`h-11 rounded-xl font-bold text-xs transition-all flex items-center justify-center border ${
+                      enquiryForm.submitterType === "parent"
+                        ? "bg-[#061A3A] text-white border-[#061A3A] shadow-sm"
+                        : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"
+                    }`}
+                  >
+                    A Parent / Guardian
+                  </button>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {/* Student Full Name */}
                 <div>
-                  <label className="block text-[11px] font-bold tracking-wider text-[#355E8D] uppercase mb-1.5">
-                    INSTITUTION NAME <span className="text-[#B21941]">*</span>
+                  <label className="block text-[11px] font-bold tracking-wider text-slate-700 uppercase mb-1.5">
+                    STUDENT FULL NAME <span className="text-[#B21941]">*</span>
                   </label>
                   <input
                     type="text"
                     required
-                    value={enquiryForm.institutionName}
+                    placeholder="e.g. Mamadou Diouf"
+                    value={enquiryForm.studentName}
                     onChange={(e) =>
-                      setEnquiryForm({ ...enquiryForm, institutionName: e.target.value })
+                      setEnquiryForm({ ...enquiryForm, studentName: e.target.value })
                     }
-                    className="w-full h-11 px-3.5 text-xs sm:text-sm bg-[#F5F9FF] border border-[#D5E3F5] rounded-xl text-slate-800 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0B4A99]/25 focus:border-[#0B4A99] transition-all"
+                    className="w-full h-11 px-3.5 text-xs sm:text-sm bg-slate-50 border border-slate-200 rounded-xl text-slate-800 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#B21941]/25 focus:border-[#B21941] transition-all"
                   />
                 </div>
 
-                {/* 2. INSTITUTION TYPE */}
+                {/* Parent / Guardian Name */}
                 <div>
-                  <label className="block text-[11px] font-bold tracking-wider text-[#355E8D] uppercase mb-1.5">
-                    INSTITUTION TYPE <span className="text-[#B21941]">*</span>
-                  </label>
-                  <select
-                    required
-                    value={enquiryForm.institutionType}
-                    onChange={(e) =>
-                      setEnquiryForm({ ...enquiryForm, institutionType: e.target.value })
-                    }
-                    className="w-full h-11 px-3 text-xs sm:text-sm bg-[#F5F9FF] border border-[#D5E3F5] rounded-xl text-slate-800 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0B4A99]/25 focus:border-[#0B4A99] transition-all"
-                  >
-                    <option value="">Select</option>
-                    <option value="Lycée / Secondary School">Lycée / Secondary School</option>
-                    <option value="College / Higher Secondary">College / Higher Secondary</option>
-                    <option value="University / Higher Education">
-                      University / Higher Education
-                    </option>
-                    <option value="International School">International School</option>
-                    <option value="School Network / Educational Group">
-                      School Network / Educational Group
-                    </option>
-                    <option value="Other">Other</option>
-                  </select>
-                </div>
-
-                {/* 3. OWNERSHIP TYPE */}
-                <div>
-                  <label className="block text-[11px] font-bold tracking-wider text-[#355E8D] uppercase mb-1.5">
-                    OWNERSHIP TYPE <span className="text-[#B21941]">*</span>
-                  </label>
-                  <select
-                    required
-                    value={enquiryForm.ownershipType}
-                    onChange={(e) =>
-                      setEnquiryForm({ ...enquiryForm, ownershipType: e.target.value })
-                    }
-                    className="w-full h-11 px-3 text-xs sm:text-sm bg-[#F5F9FF] border border-[#D5E3F5] rounded-xl text-slate-800 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0B4A99]/25 focus:border-[#0B4A99] transition-all"
-                  >
-                    <option value="">Select</option>
-                    <option value="Private (Independent)">Private (Independent)</option>
-                    <option value="Private (Network / Group)">Private (Network / Group)</option>
-                    <option value="Public / State-Governed">Public / State-Governed</option>
-                    <option value="Mission / Faith-Based">Mission / Faith-Based</option>
-                    <option value="Foundation / Non-Profit">Foundation / Non-Profit</option>
-                  </select>
-                </div>
-
-                {/* 4. CURRICULUM TYPE */}
-                <div>
-                  <label className="block text-[11px] font-bold tracking-wider text-[#355E8D] uppercase mb-1.5">
-                    CURRICULUM TYPE <span className="text-[#B21941]">*</span>
-                  </label>
-                  <select
-                    required
-                    value={enquiryForm.curriculumType}
-                    onChange={(e) =>
-                      setEnquiryForm({ ...enquiryForm, curriculumType: e.target.value })
-                    }
-                    className="w-full h-11 px-3 text-xs sm:text-sm bg-[#F5F9FF] border border-[#D5E3F5] rounded-xl text-slate-800 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0B4A99]/25 focus:border-[#0B4A99] transition-all"
-                  >
-                    <option value="">Select</option>
-                    <option value="National Baccalaureate (Francophone)">
-                      National Baccalaureate (Francophone)
-                    </option>
-                    <option value="WAEC / WASSCE (West Africa)">WAEC / WASSCE (West Africa)</option>
-                    <option value="Cambridge IGCSE & A-Levels">
-                      Cambridge IGCSE &amp; A-Levels
-                    </option>
-                    <option value="International Baccalaureate (IB DP)">
-                      International Baccalaureate (IB DP)
-                    </option>
-                    <option value="American High School Diploma">
-                      American High School Diploma
-                    </option>
-                    <option value="Bilingual / Hybrid">Bilingual / Hybrid</option>
-                  </select>
-                </div>
-
-                {/* 5. INSTITUTIONAL POSITIONING */}
-                <div>
-                  <label className="block text-[11px] font-bold tracking-wider text-[#355E8D] uppercase mb-1.5">
-                    INSTITUTIONAL POSITIONING <span className="text-[#B21941]">*</span>
-                  </label>
-                  <select
-                    required
-                    value={enquiryForm.institutionalPositioning}
-                    onChange={(e) =>
-                      setEnquiryForm({ ...enquiryForm, institutionalPositioning: e.target.value })
-                    }
-                    className="w-full h-11 px-3 text-xs sm:text-sm bg-[#F5F9FF] border border-[#D5E3F5] rounded-xl text-slate-800 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0B4A99]/25 focus:border-[#0B4A99] transition-all"
-                  >
-                    <option value="">Select</option>
-                    <option value="Tier 1 Elite / Selective">Tier 1 Elite / Selective</option>
-                    <option value="Premium International">Premium International</option>
-                    <option value="Bilingual / Preparatory">Bilingual / Preparatory</option>
-                    <option value="Mid-Market Growth">Mid-Market Growth</option>
-                    <option value="Technical & Professional">Technical &amp; Professional</option>
-                  </select>
-                </div>
-
-                {/* 6. MAIN LANGUAGE OF INSTRUCTION */}
-                <div>
-                  <label className="block text-[11px] font-bold tracking-wider text-[#355E8D] uppercase mb-1.5">
-                    MAIN LANGUAGE OF INSTRUCTION <span className="text-[#B21941]">*</span>
-                  </label>
-                  <select
-                    required
-                    value={enquiryForm.mainLanguage}
-                    onChange={(e) =>
-                      setEnquiryForm({ ...enquiryForm, mainLanguage: e.target.value })
-                    }
-                    className="w-full h-11 px-3 text-xs sm:text-sm bg-[#F5F9FF] border border-[#D5E3F5] rounded-xl text-slate-800 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0B4A99]/25 focus:border-[#0B4A99] transition-all"
-                  >
-                    <option value="">Select</option>
-                    <option value="French">French</option>
-                    <option value="English">English</option>
-                    <option value="Bilingual (French / English)">
-                      Bilingual (French / English)
-                    </option>
-                    <option value="Portuguese">Portuguese</option>
-                    <option value="Arabic / Bilingual">Arabic / Bilingual</option>
-                  </select>
-                </div>
-
-                {/* 7. COUNTRY */}
-                <div>
-                  <label className="block text-[11px] font-bold tracking-wider text-[#355E8D] uppercase mb-1.5">
-                    COUNTRY <span className="text-[#B21941]">*</span>
-                  </label>
-                  <select
-                    required
-                    value={enquiryForm.country}
-                    onChange={(e) => setEnquiryForm({ ...enquiryForm, country: e.target.value })}
-                    className="w-full h-11 px-3 text-xs sm:text-sm bg-[#F5F9FF] border border-[#D5E3F5] rounded-xl text-slate-800 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0B4A99]/25 focus:border-[#0B4A99] transition-all"
-                  >
-                    <option value="">Select</option>
-                    <option value="Senegal">Senegal</option>
-                    <option value="Nigeria">Nigeria</option>
-                    <option value="Kenya">Kenya</option>
-                    <option value="Côte d'Ivoire">Côte d'Ivoire</option>
-                    <option value="Ghana">Ghana</option>
-                    <option value="Cameroon">Cameroon</option>
-                    <option value="Morocco">Morocco</option>
-                    <option value="Rwanda">Rwanda</option>
-                    <option value="South Africa">South Africa</option>
-                    <option value="United Kingdom">United Kingdom</option>
-                    <option value="United States">United States</option>
-                    <option value="Canada">Canada</option>
-                    <option value="France">France</option>
-                    <option value="Other">Other</option>
-                  </select>
-                </div>
-
-                {/* 8. STUDENT POPULATION RANGE */}
-                <div>
-                  <label className="block text-[11px] font-bold tracking-wider text-[#355E8D] uppercase mb-1.5">
-                    STUDENT POPULATION RANGE <span className="text-[#B21941]">*</span>
-                  </label>
-                  <select
-                    required
-                    value={enquiryForm.studentPopulation}
-                    onChange={(e) =>
-                      setEnquiryForm({ ...enquiryForm, studentPopulation: e.target.value })
-                    }
-                    className="w-full h-11 px-3 text-xs sm:text-sm bg-[#F5F9FF] border border-[#D5E3F5] rounded-xl text-slate-800 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0B4A99]/25 focus:border-[#0B4A99] transition-all"
-                  >
-                    <option value="">Select</option>
-                    <option value="Under 250 students">Under 250 students</option>
-                    <option value="250 - 500 students">250 - 500 students</option>
-                    <option value="500 - 1,000 students">500 - 1,000 students</option>
-                    <option value="1,000 - 2,500 students">1,000 - 2,500 students</option>
-                    <option value="2,500+ students">2,500+ students</option>
-                  </select>
-                </div>
-
-                {/* 9. INTERNATIONAL ORIENTATION LEVEL */}
-                <div>
-                  <label className="block text-[11px] font-bold tracking-wider text-[#355E8D] uppercase mb-1.5">
-                    INTERNATIONAL ORIENTATION LEVEL <span className="text-[#B21941]">*</span>
-                  </label>
-                  <select
-                    required
-                    value={enquiryForm.internationalOrientation}
-                    onChange={(e) =>
-                      setEnquiryForm({ ...enquiryForm, internationalOrientation: e.target.value })
-                    }
-                    className="w-full h-11 px-3 text-xs sm:text-sm bg-[#F5F9FF] border border-[#D5E3F5] rounded-xl text-slate-800 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0B4A99]/25 focus:border-[#0B4A99] transition-all"
-                  >
-                    <option value="">Select</option>
-                    <option value="High (>40% students seek study abroad)">
-                      High (&gt;40% students seek study abroad)
-                    </option>
-                    <option value="Moderate (20% - 40% students seek study abroad)">
-                      Moderate (20% - 40% students seek study abroad)
-                    </option>
-                    <option value="Emerging (10% - 20% students seek study abroad)">
-                      Emerging (10% - 20% students seek study abroad)
-                    </option>
-                    <option value="Foundational (<10% students seek study abroad)">
-                      Foundational (&lt;10% students seek study abroad)
-                    </option>
-                  </select>
-                </div>
-
-                {/* 10. PARENT MARKET TYPE */}
-                <div>
-                  <label className="block text-[11px] font-bold tracking-wider text-[#355E8D] uppercase mb-1.5">
-                    PARENT MARKET TYPE <span className="text-[#B21941]">*</span>
-                  </label>
-                  <select
-                    required
-                    value={enquiryForm.parentMarketType}
-                    onChange={(e) =>
-                      setEnquiryForm({ ...enquiryForm, parentMarketType: e.target.value })
-                    }
-                    className="w-full h-11 px-3 text-xs sm:text-sm bg-[#F5F9FF] border border-[#D5E3F5] rounded-xl text-slate-800 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0B4A99]/25 focus:border-[#0B4A99] transition-all"
-                  >
-                    <option value="">Select</option>
-                    <option value="Executive / Diplomatic / Expatriate">
-                      Executive / Diplomatic / Expatriate
-                    </option>
-                    <option value="Affluent Professional / Business Class">
-                      Affluent Professional / Business Class
-                    </option>
-                    <option value="Upper-Middle Class">Upper-Middle Class</option>
-                    <option value="Diverse / Scholarship-Seeking">
-                      Diverse / Scholarship-Seeking
-                    </option>
-                  </select>
-                </div>
-
-                {/* 11. CONTACT FULL NAME */}
-                <div>
-                  <label className="block text-[11px] font-bold tracking-wider text-[#355E8D] uppercase mb-1.5">
-                    CONTACT FULL NAME <span className="text-[#B21941]">*</span>
+                  <label className="block text-[11px] font-bold tracking-wider text-slate-700 uppercase mb-1.5">
+                    PARENT / GUARDIAN NAME{" "}
+                    {enquiryForm.submitterType === "parent" ? (
+                      <span className="text-[#B21941]">*</span>
+                    ) : (
+                      <span className="text-slate-400 font-normal">(Optional)</span>
+                    )}
                   </label>
                   <input
                     type="text"
-                    required
-                    placeholder="Contact Full Name"
-                    value={enquiryForm.contactFullName}
+                    required={enquiryForm.submitterType === "parent"}
+                    placeholder="e.g. Mr. Stéphane Toupane"
+                    value={enquiryForm.parentName}
                     onChange={(e) =>
-                      setEnquiryForm({ ...enquiryForm, contactFullName: e.target.value })
+                      setEnquiryForm({ ...enquiryForm, parentName: e.target.value })
                     }
-                    className="w-full h-11 px-3.5 text-xs sm:text-sm bg-[#F5F9FF] border border-[#D5E3F5] rounded-xl text-slate-800 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0B4A99]/25 focus:border-[#0B4A99] transition-all"
+                    className="w-full h-11 px-3.5 text-xs sm:text-sm bg-slate-50 border border-slate-200 rounded-xl text-slate-800 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#B21941]/25 focus:border-[#B21941] transition-all"
                   />
                 </div>
 
-                {/* 12. DECISION-MAKER TYPE */}
+                {/* Email Address */}
                 <div>
-                  <label className="block text-[11px] font-bold tracking-wider text-[#355E8D] uppercase mb-1.5">
-                    DECISION-MAKER TYPE <span className="text-[#B21941]">*</span>
-                  </label>
-                  <select
-                    required
-                    value={enquiryForm.decisionMakerType}
-                    onChange={(e) =>
-                      setEnquiryForm({ ...enquiryForm, decisionMakerType: e.target.value })
-                    }
-                    className="w-full h-11 px-3 text-xs sm:text-sm bg-[#F5F9FF] border border-[#D5E3F5] rounded-xl text-slate-800 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0B4A99]/25 focus:border-[#0B4A99] transition-all"
-                  >
-                    <option value="">Select</option>
-                    <option value="Proprietor / Board Chair / Owner">
-                      Proprietor / Board Chair / Owner
-                    </option>
-                    <option value="Principal / Head of School / Rector">
-                      Principal / Head of School / Rector
-                    </option>
-                    <option value="Academic Director / Dean">Academic Director / Dean</option>
-                    <option value="Head of College Counselling / Guidance">
-                      Head of College Counselling / Guidance
-                    </option>
-                    <option value="Director of Admissions & Partnerships">
-                      Director of Admissions &amp; Partnerships
-                    </option>
-                  </select>
-                </div>
-
-                {/* 13. CONTACT TITLE */}
-                <div>
-                  <label className="block text-[11px] font-bold tracking-wider text-[#355E8D] uppercase mb-1.5">
-                    CONTACT TITLE <span className="text-[#B21941]">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="Contact Title"
-                    value={enquiryForm.contactTitle}
-                    onChange={(e) =>
-                      setEnquiryForm({ ...enquiryForm, contactTitle: e.target.value })
-                    }
-                    className="w-full h-11 px-3.5 text-xs sm:text-sm bg-[#F5F9FF] border border-[#D5E3F5] rounded-xl text-slate-800 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0B4A99]/25 focus:border-[#0B4A99] transition-all"
-                  />
-                </div>
-
-                {/* 14. EMAIL */}
-                <div>
-                  <label className="block text-[11px] font-bold tracking-wider text-[#355E8D] uppercase mb-1.5">
-                    EMAIL <span className="text-[#B21941]">*</span>
+                  <label className="block text-[11px] font-bold tracking-wider text-slate-700 uppercase mb-1.5">
+                    EMAIL ADDRESS <span className="text-[#B21941]">*</span>
                   </label>
                   <input
                     type="email"
                     required
-                    placeholder="Email"
+                    placeholder="e.g. student@gmail.com"
                     value={enquiryForm.email}
                     onChange={(e) => setEnquiryForm({ ...enquiryForm, email: e.target.value })}
-                    className="w-full h-11 px-3.5 text-xs sm:text-sm bg-[#F5F9FF] border border-[#D5E3F5] rounded-xl text-slate-800 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0B4A99]/25 focus:border-[#0B4A99] transition-all"
+                    className="w-full h-11 px-3.5 text-xs sm:text-sm bg-slate-50 border border-slate-200 rounded-xl text-slate-800 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#B21941]/25 focus:border-[#B21941] transition-all"
                   />
                 </div>
 
-                {/* 15. PHONE / WHATSAPP */}
+                {/* Phone / WhatsApp */}
                 <div>
-                  <label className="block text-[11px] font-bold tracking-wider text-[#355E8D] uppercase mb-1.5">
-                    PHONE / WHATSAPP <span className="text-[#B21941]">*</span>
+                  <label className="block text-[11px] font-bold tracking-wider text-slate-700 uppercase mb-1.5">
+                    WHATSAPP / PHONE NUMBER <span className="text-[#B21941]">*</span>
                   </label>
                   <input
                     type="tel"
                     required
-                    placeholder="Phone / WhatsApp"
+                    placeholder="+221 77 000 00 00"
                     value={enquiryForm.phone}
                     onChange={(e) => setEnquiryForm({ ...enquiryForm, phone: e.target.value })}
-                    className="w-full h-11 px-3.5 text-xs sm:text-sm bg-[#F5F9FF] border border-[#D5E3F5] rounded-xl text-slate-800 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0B4A99]/25 focus:border-[#0B4A99] transition-all"
+                    className="w-full h-11 px-3.5 text-xs sm:text-sm bg-slate-50 border border-slate-200 rounded-xl text-slate-800 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#B21941]/25 focus:border-[#B21941] transition-all"
                   />
                 </div>
 
-                {/* 16. WHY YOUR INSTITUTION IS SEEKING THIS PARTNERSHIP */}
-                <div className="md:col-span-2 lg:col-span-3">
-                  <label className="block text-[11px] font-bold tracking-wider text-[#355E8D] uppercase mb-1.5">
-                    WHY YOUR INSTITUTION IS SEEKING THIS PARTNERSHIP{" "}
-                    <span className="text-[#B21941]">*</span>
+                {/* Country of Residence */}
+                <div>
+                  <label className="block text-[11px] font-bold tracking-wider text-slate-700 uppercase mb-1.5">
+                    COUNTRY OF RESIDENCE <span className="text-[#B21941]">*</span>
                   </label>
-                  <textarea
+                  <select
                     required
-                    rows={4}
-                    value={enquiryForm.whySeeking}
-                    onChange={(e) => setEnquiryForm({ ...enquiryForm, whySeeking: e.target.value })}
-                    className="w-full p-3.5 text-xs sm:text-sm bg-[#F5F9FF] border border-[#D5E3F5] rounded-xl text-slate-800 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0B4A99]/25 focus:border-[#0B4A99] transition-all leading-relaxed"
-                  />
+                    value={enquiryForm.residenceCountry}
+                    onChange={(e) =>
+                      setEnquiryForm({ ...enquiryForm, residenceCountry: e.target.value })
+                    }
+                    className="w-full h-11 px-3 text-xs sm:text-sm bg-slate-50 border border-slate-200 rounded-xl text-slate-800 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#B21941]/25 focus:border-[#B21941] transition-all"
+                  >
+                    <option value="Senegal">Senegal</option>
+                    <option value="Mali">Mali</option>
+                    <option value="Côte d'Ivoire">Côte d'Ivoire</option>
+                    <option value="Guinea">Guinea</option>
+                    <option value="Cameroon">Cameroon</option>
+                    <option value="Gabon">Gabon</option>
+                    <option value="Congo">Congo</option>
+                    <option value="Burkina Faso">Burkina Faso</option>
+                    <option value="Togo">Togo</option>
+                    <option value="Benin">Benin</option>
+                    <option value="Nigeria">Nigeria</option>
+                    <option value="Ghana">Ghana</option>
+                    <option value="Kenya">Kenya</option>
+                    <option value="Rwanda">Rwanda</option>
+                    <option value="Other">Other Country</option>
+                  </select>
                 </div>
+
+                {/* Target Intake */}
+                <div>
+                  <label className="block text-[11px] font-bold tracking-wider text-slate-700 uppercase mb-1.5">
+                    TARGET INTAKE <span className="text-[#B21941]">*</span>
+                  </label>
+                  <select
+                    required
+                    value={enquiryForm.targetIntake}
+                    onChange={(e) =>
+                      setEnquiryForm({ ...enquiryForm, targetIntake: e.target.value })
+                    }
+                    className="w-full h-11 px-3 text-xs sm:text-sm bg-slate-50 border border-slate-200 rounded-xl text-slate-800 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#B21941]/25 focus:border-[#B21941] transition-all"
+                  >
+                    <option value="Fall 2025">Fall 2025 (August - September)</option>
+                    <option value="Spring 2026">Spring 2026 (January - February)</option>
+                    <option value="Summer 2026">Summer 2026 (May - June)</option>
+                    <option value="Fall 2026">Fall 2026</option>
+                  </select>
+                </div>
+              </div>
+
+              {/* Message / Questions */}
+              <div>
+                <label className="block text-[11px] font-bold tracking-wider text-slate-700 uppercase mb-1.5">
+                  YOUR QUESTIONS &amp; ADVISORY REQUIREMENTS
+                </label>
+                <textarea
+                  rows={3}
+                  value={enquiryForm.message}
+                  onChange={(e) => setEnquiryForm({ ...enquiryForm, message: e.target.value })}
+                  placeholder="Tell us about your educational background, test scores, or budget..."
+                  className="w-full p-3.5 text-xs sm:text-sm bg-slate-50 border border-slate-200 rounded-xl text-slate-800 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#B21941]/25 focus:border-[#B21941] transition-all leading-relaxed"
+                />
               </div>
 
               {/* Modal Footer */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-4 border-t border-slate-200">
                 <p className="text-xs text-slate-500">
-                  All submissions are reviewed individually under strict institutional
-                  confidentiality.
+                  Our Dakar advisors respond within 24 hours. Your details remain confidential.
                 </p>
                 <div className="flex items-center gap-3 shrink-0">
                   <Button
@@ -1457,7 +1232,7 @@ export function CourseFinder({ lockedCountry }) {
                   <button
                     type="submit"
                     disabled={submittingEnquiry}
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#006699] hover:bg-[#004d73] text-white font-bold text-xs sm:text-sm h-11 px-7 shadow-md transition-all disabled:opacity-50 cursor-pointer"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#B21941] hover:bg-[#8e1233] text-white font-bold text-xs sm:text-sm h-11 px-7 shadow-md transition-all disabled:opacity-50 cursor-pointer"
                   >
                     {submittingEnquiry ? (
                       <>
@@ -1465,7 +1240,7 @@ export function CourseFinder({ lockedCountry }) {
                       </>
                     ) : (
                       <>
-                        Submit Institutional Request <Send className="size-4" />
+                        Request Consultation <Send className="size-4" />
                       </>
                     )}
                   </button>

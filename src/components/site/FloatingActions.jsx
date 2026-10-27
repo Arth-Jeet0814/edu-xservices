@@ -37,9 +37,9 @@ export function FloatingActions() {
       <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 p-3 backdrop-blur sm:hidden">
         <Link
           to="/contact"
-          className="bg-gradient-accent flex h-11 items-center justify-center rounded-full text-sm font-semibold text-accent-foreground btn-interactive animate-pulse-subtle shadow-md"
+          className="bg-gradient-accent flex h-11 items-center justify-center rounded-full text-sm font-semibold text-accent-foreground btn-interactive shadow-md"
         >
-          Book A Meeting
+          Book Free Consultation
         </Link>
       </div>
     </>

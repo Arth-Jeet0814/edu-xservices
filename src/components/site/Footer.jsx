@@ -7,10 +7,10 @@ const quickLinks = [
   { label: "Course Finder", to: "/courses" },
   { label: "Study Destinations", to: "/destinations" },
   { label: "Universities", to: "/universities" },
-  { label: "Institutional Services", to: "/services" },
-  { label: "Events & Summits", to: "/events" },
-  { label: "Insights & Governance", to: "/blogs" },
-  { label: "Institutional Contact", to: "/contact" },
+  { label: "Services", to: "/services" },
+  { label: "Events & Fairs", to: "/events" },
+  { label: "Student & Parent Guides", to: "/blogs" },
+  { label: "Contact Us", to: "/contact" },
 ];
 export function Footer() {
   return (
@@ -20,8 +20,7 @@ export function Footer() {
           <Logo inverted />
           <p className="mt-4 max-w-sm text-sm text-white/75 leading-relaxed">
             <strong className="text-white">{contactInfo.brand}</strong> ({contactInfo.portalShort})
-            is the institutional infrastructure built to connect students and partner schools
-            directly to 189+ selective universities across 25 global destinations.
+            is the leading study abroad agency guiding African students and families to study at top universities in the USA, Canada, and across 25 global destinations.
           </p>
           <div className="mt-4 flex items-center gap-2 text-xs text-[#E8A0B0] font-semibold">
             <ShieldCheck className="size-4 text-[#B21941]" />
@@ -31,7 +30,7 @@ export function Footer() {
 
         <div>
           <h3 className="text-xs font-bold tracking-widest uppercase text-[#E8A0B0]">
-            Governance & Links
+            Quick Links
           </h3>
           <ul className="mt-4 space-y-2.5 text-sm text-white/70">
             {quickLinks.map((l) => (

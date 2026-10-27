@@ -40,22 +40,26 @@ import { SectionHeading } from "@/components/site/SectionHeading";
 import { TestimonialSlider } from "@/components/site/TestimonialSlider";
 import { UniversityCarousel } from "@/components/site/UniversityCarousel";
 import { RevolvingEarth } from "@/components/site/RevolvingEarth";
+import { WhatWeDoSection } from "@/components/site/WhatWeDoSection";
+import { RealStoriesSection } from "@/components/site/RealStoriesSection";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
   blogs,
   contactInfo,
+  corePillars,
   destinations,
   educationLevels,
   events,
+  faqs,
   intakeOptions,
   processSteps,
   services,
   whyChooseUs,
 } from "@/data/site";
-const title = "Education eXcellence Services — Academic Mobility & Global Pathways";
+const title = "Education eXcellence Services — Study in USA & Canada";
 const description =
-  "Guiding Students. Creating Futures. Changing Lives. Connect to 189+ selective universities worldwide across 25 countries with Education eXcellence Services.";
+  "Edu-X is the leading study abroad agency in Senegal, guiding African students into top US and Canadian universities. Admission, visa, scholarships.";
 const categoryIcons = {
   "Business and Management": Briefcase,
   Engineering: Wrench,
@@ -97,12 +101,15 @@ function Index() {
       <Finder />
       <FeaturedUniversities />
       <PopularCourses />
+      <WhatWeDoSection />
       <Services />
       <HowItWorks />
       <WhyChooseUs />
+      <RealStoriesSection />
       <Testimonials />
       <Events />
       <Blogs />
+      <FaqSection />
       <CtaBanner />
       <Contact />
     </>
@@ -138,32 +145,48 @@ function Hero() {
         <div className="animate-fade-in-up">
           <span className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md border border-white/15 px-4 py-1.5 text-xs font-bold text-[#E8A0B0] shadow-sm tracking-wide animate-pulse-subtle">
             <span className="size-2 rounded-full bg-emerald-400 animate-pulse" />
-            Institutional Department Framework
+            Study in USA &amp; Canada — Edu-X Services
           </span>
           <h1 className="mt-5 text-4xl leading-[1.08] font-extrabold text-white sm:text-5xl xl:text-6xl tracking-tight">
-            Built for schools that raise the standard of{" "}
+            Personalized guidance for ambitious students pursuing{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-200 to-amber-200 animate-gradient-shift">
-              African education.
+              academic excellence.
             </span>
           </h1>
           <p className="mt-5 max-w-xl text-base text-slate-300 sm:text-lg leading-relaxed font-normal">
-            Engineered to connect them to the world’s most selective universities. A purpose-built
-            institutional framework equipping selected African schools with structured pathways to
-            189+ universities across 25 countries.
+            Edu-X is the leading study abroad agency in Senegal, guiding African students into top US and Canadian universities. Admission, visa, scholarships, and arrival support.
           </p>
+
+          {/* Clarity, Eligibility, Strategy value pills from edu-xservices.com */}
+          <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {corePillars.map((p) => (
+              <div
+                key={p.title}
+                className="rounded-2xl border border-white/15 bg-white/5 backdrop-blur-xs p-3.5 transition-all hover:bg-white/10"
+              >
+                <div className="text-xs font-bold text-[#E8A0B0] uppercase tracking-wider">
+                  {p.title}
+                </div>
+                <div className="text-xs text-slate-300 mt-1 font-medium leading-snug">
+                  {p.highlight}
+                </div>
+              </div>
+            ))}
+          </div>
+
           <div className="mt-8 flex flex-wrap gap-3">
             <Button
               asChild
               size="lg"
-              className="btn-interactive animate-pulse-subtle bg-[#B21941] hover:bg-[#8e1233] text-white font-bold text-sm shadow-lg hover:shadow-[#B21941]/40"
+              className="btn-interactive bg-[#B21941] hover:bg-[#8e1233] text-white font-bold text-sm shadow-md hover:shadow-[#B21941]/40"
             >
-              <Link to="/contact">Request a Partnership Briefing</Link>
+              <Link to="/contact">Book Your Free Consultation</Link>
             </Button>
             <Button
               asChild
               size="lg"
               variant="outline"
-              className="btn-interactive border-white/40 bg-white/10 hover:bg-white/20 text-white hover:text-white font-bold text-sm backdrop-blur-md shadow-sm transition-all"
+              className="btn-interactive border-white/40 bg-white/10 hover:bg-white/20 text-white hover:text-white font-bold text-sm shadow-sm transition-all"
             >
               <Link to="/courses">
                 <Search className="size-4 mr-1.5" /> Search 96,000+ Courses
@@ -228,7 +251,7 @@ function Hero() {
             </div>
             <Button
               type="submit"
-              className="btn-interactive animate-pulse-subtle mt-3.5 w-full bg-[#B21941] hover:bg-[#8e1233] text-white font-bold rounded-xl shadow-lg hover:shadow-[#B21941]/30 transition-all cursor-pointer"
+              className="btn-interactive mt-3.5 w-full bg-[#B21941] hover:bg-[#8e1233] text-white font-bold rounded-xl shadow-md hover:shadow-[#B21941]/30 transition-all cursor-pointer"
               size="lg"
             >
               <Search className="size-4 mr-2" /> Find Program in Global Directory
@@ -379,20 +402,19 @@ function About() {
       <div>
         <SectionHeading
           align="left"
-          eyebrow="Beyond Traditional Recruitment"
-          title="An Institutional Standard, Not a Service"
-          description="Education eXcellence Services (Edu-X Services) is the private institutional infrastructure built for ambitious schools, students, and colleges — designed to give each member full visibility, full control, and full credit over the international trajectory of every student under its care."
+          eyebrow="Dedicated Student & Parent Support"
+          title="A Proven Pathway to Top Universities in the USA & Canada"
+          description="Education eXcellence Services (Edu-X Services) was founded by a Columbia University alumna to provide ambitious African students and their families with the honest guidance, strategic positioning, and personal mentorship needed to gain admission and scholarships abroad."
         />
         <p className="mt-4 text-xs font-semibold text-[#B21941]">
-          We are not an agency. We are not a marketplace. Edu-X Services is the governance
-          instrument academic leadership and ambitious families trust.
+          We treat every student like family. Edu-X provides the roadmap, peace of mind, and continuous support that ambitious parents and students count on.
         </p>
         <ul className="mt-6 space-y-3.5">
           {[
-            "Every outbound student's profile, aspirations, and live application status",
-            "A direct line to 189+ selective universities across Europe, Asia, America, and the UK",
-            "Verified credential transmittal and compliance vetting for 98% visa approvals",
-            "End-to-end arrival and campus integration support under your school's brand",
+            "Personalized university matching aligned with your child's academic strengths and family budget",
+            "Active positioning for merit-based scholarships and university tuition fee reductions",
+            "Meticulous financial documentation auditing and mock consular interviews for 98% visa approvals",
+            "Complete pre-departure guidance, student housing booking, and airport arrival support",
           ].map((point) => (
             <li
               key={point}
@@ -410,7 +432,7 @@ function About() {
             className="btn-interactive bg-[#B21941] hover:bg-[#8e1233] text-white font-bold text-xs rounded-xl shadow-md hover:shadow-[#B21941]/30"
           >
             <Link to="/about">
-              View the Framework{" "}
+              Learn About Edu-X{" "}
               <ArrowRight className="size-4 ml-1.5 transition-transform duration-200 group-hover:translate-x-1" />
             </Link>
           </Button>
@@ -420,7 +442,7 @@ function About() {
             size="lg"
             className="btn-interactive text-xs font-semibold rounded-xl"
           >
-            <Link to="/contact">Request Private Briefing</Link>
+            <Link to="/contact">Book Free Consultation</Link>
           </Button>
         </div>
       </div>
@@ -433,8 +455,8 @@ function Destinations() {
       <div className="container-page">
         <SectionHeading
           eyebrow="Study Destinations"
-          title="Global Academic Pathways across 25 Countries"
-          description="Structured routes to world-class universities in the USA, UK, Canada, Australia, Germany, France, and beyond."
+          title="Explore Universities Across the USA, Canada & Beyond"
+          description="Find the right destination for your degree with verified tuition costs, post-study work permits, and scholarship opportunities."
         />
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {destinations.map((d, i) => (
@@ -450,8 +472,8 @@ function Finder() {
     <section className="section container-page" id="course-finder">
       <SectionHeading
         eyebrow="Global Course Directory"
-        title="Find Your Program Across 96,083 Degrees"
-        description="Filter selective programs across 25 global destinations with live tuition fees, scholarship availability, and instant application inquiry."
+        title="Find Your Dream Degree Across 96,083 Programs"
+        description="Filter university degrees across 25 global destinations with live tuition fees, scholarship availability, and instant admission assistance."
       />
       <div className="mt-12">
         <CourseFinder />
@@ -464,9 +486,9 @@ function FeaturedUniversities() {
     <section className="section bg-muted/50">
       <div className="container-page">
         <SectionHeading
-          eyebrow="Featured Universities"
-          title="Institutions our students join"
-          description="Direct partnerships mean faster offers, clearer requirements and better scholarship access."
+          eyebrow="Partner Universities"
+          title="Universities Where Our Students Study"
+          description="From top U.S. and Canadian institutions to prestigious universities worldwide, our students receive direct guidance and scholarship access."
         />
         <div className="mt-12 px-1">
           <UniversityCarousel />
@@ -479,9 +501,9 @@ function PopularCourses() {
   return (
     <section className="section container-page">
       <SectionHeading
-        eyebrow="Popular Courses"
-        title="Explore in-demand study areas"
-        description="Course categories our students apply to most, mapped to strong graduate outcomes."
+        eyebrow="Popular Degrees"
+        title="Explore In-Demand Fields of Study"
+        description="High-growth majors our students apply to most, mapped to high-paying international careers."
       />
       <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {Object.entries(categoryIcons).map(([category, Icon]) => (
@@ -496,7 +518,7 @@ function PopularCourses() {
               {category}
             </h3>
             <Button asChild variant="outline" size="sm" className="btn-interactive mt-5 w-fit">
-              <Link to="/courses">Explore Courses</Link>
+              <Link to="/courses">Explore Programs</Link>
             </Button>
           </div>
         ))}
@@ -508,7 +530,11 @@ function Services() {
   return (
     <section className="section bg-muted/50">
       <div className="container-page">
-        <SectionHeading eyebrow="Our Services" title="Support at every stage of your application" />
+        <SectionHeading
+          eyebrow="Our Student & Family Services"
+          title="Complete Guidance from Application to Graduation"
+          description="We take care of every detail so students and parents can focus on academic success and exciting new beginnings."
+        />
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((s) => {
             const Icon = serviceIcons[s.icon] ?? Compass;
@@ -539,9 +565,9 @@ function HowItWorks() {
   return (
     <section className="section container-page">
       <SectionHeading
-        eyebrow="Selection & Activation"
-        title="The 4-Phase Institutional Partnership Model"
-        description="Edu-X Services partners with premier secondary and higher education institutions to build direct pathways."
+        eyebrow="Simple, Step-by-Step Path"
+        title="How We Guide Students & Families"
+        description="A structured, transparent roadmap designed to reduce stress and maximize admission and scholarship success."
       />
       <ol className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {processSteps.map((step, i) => (
@@ -559,7 +585,7 @@ function HowItWorks() {
               </p>
             </div>
             <div className="mt-6 pt-3 border-t border-border/50 text-[11px] font-semibold text-[#B21941]">
-              Phase 0{i + 1} Milestone
+              Student Milestone 0{i + 1}
             </div>
           </li>
         ))}
@@ -574,9 +600,9 @@ function WhyChooseUs() {
         <div>
           <SectionHeading
             align="left"
-            eyebrow="Why Choose Us"
-            title="Engineered for Institutional Excellence"
-            description="Every element of the Edu-X Services framework is engineered to strengthen institutional credibility, deepen parent confidence, and elevate international standing."
+            eyebrow="Why Families Trust Edu-X"
+            title="We Reduce Risk. We Reduce Stress. We Increase Opportunity."
+            description="Every step of the Edu-X journey is engineered to ensure parents feel confident and students thrive in world-class academic environments."
           />
           <div className="mt-8 grid gap-5 sm:grid-cols-2">
             {whyChooseUs.map((item) => (
@@ -607,7 +633,7 @@ function WhyChooseUs() {
 function Testimonials() {
   return (
     <section className="section container-page">
-      <SectionHeading eyebrow="Leadership Endorsements" title="What African School Leaders Say" />
+      <SectionHeading eyebrow="Real Student & Parent Voices" title="What Families Say About Edu-X" />
       <div className="mt-12 px-1">
         <TestimonialSlider />
       </div>
@@ -619,8 +645,9 @@ function Events() {
     <section className="section bg-muted/50">
       <div className="container-page">
         <SectionHeading
-          eyebrow="Institutional Events"
-          title="Summits, Round-tables &amp; Briefings"
+          eyebrow="Fairs & Workshops"
+          title="Student & Parent Information Sessions"
+          description="Join our upcoming webinars, scholarship briefings, and pre-departure orientations."
         />
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {events.map((e) => (
@@ -640,7 +667,7 @@ function Events() {
               </div>
               <div className="flex flex-1 flex-col p-5">
                 <span className="bg-[#061A3A]/10 text-[#061A3A] w-fit rounded-full px-2.5 py-1 text-xs font-bold transition-colors group-hover:bg-[#B21941]/10 group-hover:text-[#B21941]">
-                  {e.online ? "Online Briefing" : "Regional Hub"}
+                  {e.online ? "Online Webinar" : "In-Person Session"}
                 </span>
                 <h3 className="mt-3 text-base leading-snug font-bold transition-colors group-hover:text-[#B21941]">
                   {e.title}
@@ -657,7 +684,7 @@ function Events() {
                   size="sm"
                   className="btn-interactive mt-5 bg-[#B21941] hover:bg-[#8e1233] text-white font-bold text-xs rounded-xl shadow-xs"
                 >
-                  <Link to="/events">Register Delegation</Link>
+                  <Link to="/events">Reserve Free Seat</Link>
                 </Button>
               </div>
             </article>
@@ -671,8 +698,9 @@ function Blogs() {
   return (
     <section className="section container-page">
       <SectionHeading
-        eyebrow="Insights &amp; Analysis"
-        title="Governance &amp; Student Mobility Briefings"
+        eyebrow="Helpful Resources"
+        title="Study Abroad Guides for Students & Parents"
+        description="Expert advice on Canadian admissions, U.S. university scholarships, and visa interview strategies."
       />
       <div className="mt-12 grid gap-6 md:grid-cols-3">
         {blogs.map((b) => (
@@ -705,7 +733,7 @@ function Blogs() {
                 className="mt-4 w-fit px-0 text-[#061A3A] font-bold group/link"
               >
                 <Link to="/blogs" className="flex items-center">
-                  Read Analysis{" "}
+                  Read Guide{" "}
                   <ArrowRight className="size-4 ml-1 transition-transform duration-200 group-hover/link:translate-x-1.5 text-[#B21941]" />
                 </Link>
               </Button>
@@ -716,6 +744,56 @@ function Blogs() {
     </section>
   );
 }
+function FaqSection() {
+  return (
+    <section className="section bg-slate-50 border-t border-border" id="faq">
+      <div className="container-page max-w-4xl">
+        <SectionHeading
+          eyebrow="Frequently Asked Questions"
+          title="Everything You Need to Know About Edu-X"
+          description="Clear communication and transparent guidance for students and families preparing for U.S. and Canadian higher education."
+        />
+
+        <div className="mt-12 space-y-4">
+          {faqs.map((faq, idx) => (
+            <div
+              key={faq.q}
+              className="card-hover group rounded-3xl border border-border bg-card p-6 sm:p-7 shadow-[var(--shadow-soft)] transition-all duration-300 hover:border-[#B21941]/40"
+            >
+              <div className="flex items-start gap-4">
+                <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-[#061A3A] text-white text-xs font-extrabold group-hover:bg-[#B21941] transition-colors">
+                  0{idx + 1}
+                </span>
+                <div>
+                  <h3 className="text-base sm:text-lg font-bold text-foreground transition-colors group-hover:text-[#B21941]">
+                    {faq.q}
+                  </h3>
+                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                    {faq.a}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-10 text-center">
+          <p className="text-sm text-muted-foreground mb-4">
+            Still have questions about your university options or visa requirements?
+          </p>
+          <Button
+            asChild
+            size="lg"
+            className="btn-interactive bg-[#B21941] hover:bg-[#8e1233] text-white font-bold text-xs rounded-xl shadow-md hover:shadow-[#B21941]/30"
+          >
+            <Link to="/contact">Book Your Consultation Today</Link>
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function CtaBanner() {
   return (
     <section className="container-page pb-16">
@@ -728,36 +806,35 @@ function CtaBanner() {
         />
         <div className="relative z-10 max-w-2xl mx-auto">
           <span className="inline-block px-3 py-1 rounded-full text-[10.5px] font-extrabold uppercase tracking-widest bg-white/10 text-[#E8A0B0] mb-4 animate-pulse-subtle">
-            Private Institutional Network
+            Your Child's Global Journey Starts Here
           </span>
           <h2 className="text-2xl sm:text-4xl font-extrabold text-white leading-tight">
-            Your Institution. Our Infrastructure. Their Future.
+            Your Ambition. Our Guidance. A World-Class Future.
           </h2>
           <p className="mt-4 text-sm sm:text-base text-slate-300 leading-relaxed">
-            Edu-X Services partners with forward-thinking schools to deliver a structured, globally
-            connected pathway to higher education — with the institutional rigor, visibility, and
-            credibility that leading schools demand.
+            Studying abroad can feel overwhelming — but families don't have to figure it out alone.
+            Let’s sit down, review your goals, and build your personalized study plan together.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Button
               asChild
               size="lg"
-              className="btn-interactive animate-pulse-subtle bg-[#B21941] hover:bg-[#8e1233] text-white font-bold text-xs rounded-xl shadow-lg hover:shadow-[#B21941]/40"
+              className="btn-interactive bg-[#B21941] hover:bg-[#8e1233] text-white font-bold text-xs rounded-xl shadow-md hover:shadow-[#B21941]/40"
             >
-              <Link to="/contact">Request Institutional Briefing</Link>
+              <Link to="/contact">Book Your Free Consultation</Link>
             </Button>
             <Button
               asChild
               size="lg"
               variant="outline"
-              className="btn-interactive border-white/40 bg-white/10 hover:bg-white/20 text-white hover:text-white text-xs font-semibold rounded-xl backdrop-blur-md shadow-sm transition-all"
+              className="btn-interactive border-white/40 bg-white/10 hover:bg-white/20 text-white hover:text-white text-xs font-semibold rounded-xl shadow-sm transition-all"
             >
               <a
                 href={`https://wa.me/${contactInfo.whatsapp}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <MessageCircle className="size-4 mr-1.5" /> WhatsApp Executive Line
+                <MessageCircle className="size-4 mr-1.5" /> WhatsApp Our Team
               </a>
             </Button>
           </div>
@@ -773,9 +850,9 @@ function Contact() {
         <div className="text-center max-w-3xl mx-auto mb-10">
           <SectionHeading
             align="center"
-            eyebrow="Institutional Consultation"
-            title="Book a Meeting with our International Directorate"
-            description="Institutional partners, lycée heads, and university recruiters: submit your institutional requirements for cohort planning, bilateral agreements, and direct student placement."
+            eyebrow="Free Student & Parent Consultation"
+            title="Book Your Consultation with an Education Advisor"
+            description="Tell us about the student's study dreams, target countries, and program interests. Our team will review your profile and confirm your session within 24 hours."
           />
         </div>
         <EnquiryForm />

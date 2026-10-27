@@ -1,11 +1,19 @@
 import { Link } from "react-router-dom";
-import { CheckCircle2, ShieldCheck } from "lucide-react";
+import { Award, CheckCircle2, HeartHandshake, ShieldCheck, Trophy } from "lucide-react";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { Button } from "@/components/ui/button";
-import { contactInfo, founderLetter, processSteps, whyChooseUs } from "@/data/site";
+import {
+  communityImpact,
+  contactInfo,
+  credentials,
+  founderLetter,
+  processSteps,
+  whyChooseUs,
+} from "@/data/site";
 const title = "About Us | Education eXcellence Services (Edu-X Services)";
 const description =
-  "Education eXcellence Services is the private institutional international department framework built for selective schools and students worldwide.";
+  "Education eXcellence Services guides African students and their families to gain admission and scholarships at selective universities in the USA, Canada, and worldwide.";
+
 function AboutPage() {
   return (
     <>
@@ -20,36 +28,36 @@ function AboutPage() {
         <div className="container-page relative z-10 animate-fade-in-up">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[#E8A0B0] text-xs font-bold tracking-wide uppercase mb-4 animate-pulse-subtle">
             <ShieldCheck className="size-3.5 text-emerald-400" />
-            <span>School-Embedded International Department Framework</span>
+            <span>Guiding Students &amp; Supporting Families</span>
           </div>
           <h1 className="text-3xl font-extrabold sm:text-5xl lg:text-6xl max-w-4xl leading-[1.1] text-white">
-            An Institutional Infrastructure.{" "}
+            A Proven Pathway to Global Universities.{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-200 to-amber-200 animate-gradient-shift">
-              Not an Agency.
+              Personalized for Every Family.
             </span>
           </h1>
           <p className="mt-6 max-w-3xl text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
             <strong className="text-white">Education eXcellence Services</strong> (
-            <strong className="text-white">Edu-X Services</strong>) is a premier institutional
-            framework that connects ambitious schools and students to 189+ selective universities
-            worldwide. The platform coordinates what has historically been disconnected: student
-            preparation, family guidance, school-level academic alignment, and university admissions
-            expectations.
+            <strong className="text-white">Edu-X Services</strong>) is a premier international
+            education advisory connecting ambitious students and their families to 189+ selective
+            universities worldwide. We guide students and parents through every milestone: academic
+            alignment, university matching, scholarship positioning, visa interview preparation,
+            and pre-departure settlement.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
             <Button
               asChild
               size="lg"
-              className="btn-interactive animate-pulse-subtle bg-[#B21941] hover:bg-[#8e1233] text-white font-bold text-sm shadow-lg hover:shadow-[#B21941]/40"
+              className="btn-interactive bg-[#B21941] hover:bg-[#8e1233] text-white font-bold text-sm shadow-md hover:shadow-[#B21941]/40"
             >
-              <Link to="/contact">Request a Partnership Briefing</Link>
+              <Link to="/contact">Book Free Consultation</Link>
             </Button>
             <Button
               asChild
               size="lg"
               variant="outline"
-              className="btn-interactive border-white/40 bg-white/10 hover:bg-white/20 text-white hover:text-white font-bold text-sm backdrop-blur-md shadow-sm transition-all"
+              className="btn-interactive border-white/40 bg-white/10 hover:bg-white/20 text-white hover:text-white font-bold text-sm shadow-sm transition-all"
             >
               <Link to="/courses">Explore Course Directory</Link>
             </Button>
@@ -86,22 +94,21 @@ function AboutPage() {
           <div>
             <SectionHeading
               align="left"
-              eyebrow="Institutional Standard"
-              title="Beyond Traditional Recruitment: Embedded at the School Level"
-              description="The model works at the school level. Education eXcellence Services Portal partners directly with vetted, high-standard schools across Africa, embedding an accredited international pathways department directly into the school's own academic infrastructure."
+              eyebrow="Personalized Family Guidance"
+              title="Beyond Simple Applications: A Strategic Mentorship Pathway"
+              description="Edu-X Services works directly with students and parents across Africa, providing structured mentorship, credential evaluations, and comprehensive admissions guidance tailored to your family's educational and financial aspirations."
             />
             <div className="mt-6 space-y-4 text-sm text-muted-foreground leading-relaxed">
               <p>
-                Students who reach universities through our portal have been identified, prepared,
-                and positioned through their school — not through an independent commercial agency
-                or external recruiter.
+                Every student who works with Edu-X receives dedicated, one-on-one attention from
+                experienced advisors who understand the exact requirements of American and Canadian
+                universities.
               </p>
               <p>
-                For universities, this means something specific: the students arriving through
-                Education eXcellence Services Portal have been academically prepared, culturally
-                oriented, and institutionally coordinated before they apply. They are not
-                self-navigating a fragmented system. They are coming through a governed
-                international pathway.
+                For families, this means total transparency: from university selection and
+                scholarship applications to visa compliance and pre-departure arrival. Your child is
+                guided by certified advisors with direct insight into North American higher
+                education.
               </p>
             </div>
 
@@ -109,9 +116,9 @@ function AboutPage() {
               {[
                 "Direct line to 189+ selective universities",
                 "Full visibility over live application statuses",
-                "Dedicated parent transparency portal",
+                "Dedicated parent transparency & updates",
                 "Verified credential transmittal & compliance",
-                "Institutional fee waiver & fellowship access",
+                "Merit scholarship & tuition waiver positioning",
                 "End-to-end arrival & on-campus support",
               ].map((item) => (
                 <div
@@ -127,13 +134,13 @@ function AboutPage() {
 
           <div className="rounded-3xl border border-border bg-card p-8 shadow-[var(--shadow-card)]">
             <h3 className="text-lg font-bold text-[#061A3A] mb-4 flex items-center gap-2">
-              <ShieldCheck className="size-5 text-[#B21941]" /> Institutional Mandate &amp;
-              Governance
+              <ShieldCheck className="size-5 text-[#B21941]" /> Family Trust &amp; Guiding
+              Principles
             </h3>
             <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-              Access to the Edu-X Services network is extended to institutions that share our
-              standards of rigor, stewardship, and international ambition. We equip member schools
-              with the governance instrument academic leadership requires.
+              Our advisory is founded on ethics, personal mentorship, and measurable outcomes. We
+              partner closely with parents to ensure every decision protects the family's investment
+              and empowers the student's future.
             </p>
             <div className="space-y-4 border-t border-border pt-6">
               <div className="flex gap-3">
@@ -142,7 +149,7 @@ function AboutPage() {
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-foreground">
-                    Dakar Regional Hub &amp; Headquarters
+                    Dakar Advisory Hub &amp; Headquarters
                   </h4>
                   <p className="text-xs text-muted-foreground">{contactInfo.address}</p>
                 </div>
@@ -152,9 +159,9 @@ function AboutPage() {
                   Hubs
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-foreground">Regional Liaison Network</h4>
+                  <h4 className="text-sm font-bold text-foreground">Regional Advisory Network</h4>
                   <p className="text-xs text-muted-foreground">
-                    Dakar • Lagos • Nairobi • London Liaison Office
+                    Dakar • Lagos • Nairobi • Global University Network
                   </p>
                 </div>
               </div>
@@ -163,9 +170,9 @@ function AboutPage() {
                   98%
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-foreground">Visa Compliance Directorate</h4>
+                  <h4 className="text-sm font-bold text-foreground">Visa Compliance &amp; Coaching</h4>
                   <p className="text-xs text-muted-foreground">
-                    Rigorous pre-compliance vetting and embassy interview preparation
+                    Rigorous pre-compliance vetting and 1-on-1 embassy interview preparation
                   </p>
                 </div>
               </div>
@@ -221,10 +228,10 @@ function AboutPage() {
                   </div>
                   <div className="p-3 rounded-xl bg-slate-50 border border-slate-100 transition-transform duration-300 group-hover:scale-[1.02]">
                     <span className="block text-[11px] font-bold text-emerald-600 uppercase">
-                      Launch
+                      Reach
                     </span>
                     <span className="text-xs font-semibold text-slate-700">
-                      {founderLetter.launchStat || "Partner Schools · 2026"}
+                      500+ Families Guided
                     </span>
                   </div>
                 </div>
@@ -269,12 +276,134 @@ function AboutPage() {
         </div>
       </section>
 
-      {/* Governance & Process Steps */}
+      {/* Credentials & Global Recognition (from edu-xservices.com) */}
+      <section className="section bg-slate-50 border-t border-border">
+        <div className="container-page">
+          <SectionHeading
+            eyebrow="Global Standards. Proven Preparation. Measurable Impact."
+            title="Credentials & Global Recognition"
+            description="Edu-X operates with verified academic credentials and internationally recognized certifications that reflect our commitment to ethical guidance, student excellence, and family trust."
+          />
+
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {credentials.map((cred) => (
+              <div
+                key={cred.title}
+                className="card-hover group rounded-3xl border border-border bg-card p-7 shadow-[var(--shadow-soft)] transition-all duration-300 hover:border-[#B21941]/40 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="inline-flex items-center gap-1.5 rounded-full bg-[#B21941]/10 px-3 py-1 text-[11px] font-bold text-[#B21941] uppercase tracking-wide mb-4">
+                    <Award className="size-3.5" />
+                    <span>{cred.badge}</span>
+                  </div>
+                  <h3 className="text-base font-bold text-foreground transition-colors group-hover:text-[#B21941] mb-2.5">
+                    {cred.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                    {cred.description}
+                  </p>
+                </div>
+                <div className="mt-5 pt-3 border-t border-border/50 text-[11px] font-semibold text-emerald-600 flex items-center gap-1.5">
+                  <CheckCircle2 className="size-3.5" /> Certified Educational Standard
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Community Impact Section (from edu-xservices.com) */}
+      <section className="section bg-background border-t border-border">
+        <div className="container-page">
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#B21941]/10 text-[#B21941] text-xs font-bold tracking-wide uppercase mb-4">
+                <HeartHandshake className="size-3.5" />
+                <span>Community Impact &amp; Continental Mission</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#061A3A] tracking-tight leading-tight">
+                {communityImpact.headline}
+              </h2>
+              <p className="mt-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
+                {communityImpact.subhead}
+              </p>
+
+              <div className="mt-8 rounded-3xl border border-border/80 bg-muted/40 p-6 space-y-4">
+                <div className="flex items-start gap-3">
+                  <div className="grid size-10 shrink-0 place-items-center rounded-2xl bg-[#061A3A] text-white font-extrabold text-sm shadow-xs">
+                    01
+                  </div>
+                  <div>
+                    <h3 className="text-base font-bold text-[#061A3A]">
+                      {communityImpact.gala.title}
+                    </h3>
+                    <p className="text-xs text-[#B21941] font-semibold mt-0.5">
+                      {communityImpact.gala.subtitle}
+                    </p>
+                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mt-2">
+                      {communityImpact.gala.description}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2 border-t border-border/60">
+                  {communityImpact.gala.goals.map((g) => (
+                    <div key={g} className="flex items-start gap-1.5 text-xs text-foreground font-medium">
+                      <CheckCircle2 className="size-3.5 shrink-0 text-emerald-600 mt-0.5" />
+                      <span>{g}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-3xl border border-[#B21941]/30 bg-gradient-to-br from-[#061A3A] via-[#0b244d] to-[#040e22] text-white p-8 sm:p-10 shadow-xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 size-72 rounded-full bg-[#B21941]/20 blur-3xl pointer-events-none" />
+              <div className="relative z-10 space-y-5">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-[#E8A0B0] text-xs font-bold tracking-wide uppercase">
+                  Live Competition &amp; Scholarship
+                </span>
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-white leading-snug">
+                  {communityImpact.competition.title}
+                </h3>
+                <p className="text-xs text-slate-300 font-medium italic">
+                  {communityImpact.competition.subtitle}
+                </p>
+                <p className="text-sm text-slate-300 leading-relaxed font-normal">
+                  {communityImpact.competition.description}
+                </p>
+
+                <div className="rounded-2xl bg-white/10 border border-white/20 p-5 mt-4">
+                  <div className="flex items-center gap-2 text-emerald-400 font-extrabold text-sm sm:text-base">
+                    <Trophy className="size-5 text-amber-300 shrink-0" />
+                    <span>{communityImpact.competition.reward}</span>
+                  </div>
+                  <p className="text-xs text-slate-300 mt-1">
+                    Direct entry to selective U.S. partner institutions with full academic funding.
+                  </p>
+                </div>
+
+                <div className="pt-3">
+                  <Button
+                    asChild
+                    size="lg"
+                    className="btn-interactive w-full bg-[#B21941] hover:bg-[#8e1233] text-white font-bold text-xs rounded-xl shadow-md hover:shadow-[#B21941]/30"
+                  >
+                    <Link to="/contact">Learn About Our Excellence Programs</Link>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Guidance & Process Steps */}
       <section className="section container-page">
         <SectionHeading
-          eyebrow="Governance & Selection Process"
-          title="The 4-Phase Institutional Onboarding Model"
-          description="Edu-X Services is intentionally selective and typically available by invitation or pre-screening. Here is how partner schools activate their embedded international pathways department."
+          eyebrow="Structured Guidance Process"
+          title="The 4-Step Family Journey to University Success"
+          description="Edu-X Services provides end-to-end guidance from your initial profile evaluation to university arrival. Here is how we support students and parents through every milestone."
         />
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {processSteps.map((step, idx) => (
@@ -292,7 +421,7 @@ function AboutPage() {
                 <p className="text-xs text-muted-foreground leading-relaxed">{step.description}</p>
               </div>
               <div className="mt-5 pt-3 border-t border-border/50 text-[11px] font-semibold text-[#B21941]">
-                Institutional Milestone 0{idx + 1}
+                Step 0{idx + 1}
               </div>
             </div>
           ))}
@@ -303,8 +432,8 @@ function AboutPage() {
       <section className="section bg-muted/50 border-t border-border">
         <div className="container-page">
           <SectionHeading
-            eyebrow="Why Leading Schools Partner With Us"
-            title="Engineered for Institutional Governance and Student Success"
+            eyebrow="Why Families Choose Us"
+            title="Proven Mentorship, Transparent Guidance, and Lasting Student Success"
           />
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {whyChooseUs.map((w) => (
@@ -337,25 +466,25 @@ function AboutPage() {
         />
         <div className="container-page text-center max-w-3xl relative z-10">
           <h2 className="text-2xl font-extrabold sm:text-4xl text-white">
-            Partner with Education eXcellence Services
+            Start Your Family's Study Abroad Journey
           </h2>
           <p className="mt-4 text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
-            Equip your lycée, college, or school group with a governed, accredited International
-            Department infrastructure. Begin the pre-screening dialogue with our leadership team.
+            Book a free, one-on-one consultation with our Dakar-based advisors. We will review your
+            academic goals, budget, and target universities in the USA, Canada, and beyond.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Button
               asChild
               size="lg"
-              className="btn-interactive animate-pulse-subtle bg-[#B21941] hover:bg-[#8e1233] text-white font-bold text-sm shadow-lg hover:shadow-[#B21941]/40"
+              className="btn-interactive bg-[#B21941] hover:bg-[#8e1233] text-white font-bold text-sm shadow-md hover:shadow-[#B21941]/40"
             >
-              <Link to="/contact">Request Institutional Briefing</Link>
+              <Link to="/contact">Book Free Consultation</Link>
             </Button>
             <Button
               asChild
               size="lg"
               variant="outline"
-              className="btn-interactive border-white/40 bg-white/10 hover:bg-white/20 text-white hover:text-white font-bold text-sm backdrop-blur-md shadow-sm transition-all"
+              className="btn-interactive border-white/40 bg-white/10 hover:bg-white/20 text-white hover:text-white font-bold text-sm shadow-sm transition-all"
             >
               <Link to="/courses">Search Global Programs</Link>
             </Button>

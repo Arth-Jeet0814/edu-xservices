@@ -416,7 +416,7 @@ export const destinations = [
     intakes: ["February", "October"],
     tuition: "EUR 6,000 - 12,000 per year",
     costOfLiving: "EUR 8,000 - 10,000 per year",
-    scholarships: "Institutional early-payment discounts and merit awards.",
+    scholarships: "Early-payment discounts and university merit awards.",
     visaProcess: [
       "Receive acceptance letter",
       "Arrange accommodation and insurance",
@@ -989,254 +989,706 @@ export const courses = [
 ];
 export const services = [
   {
-    title: "School-Embedded International Department",
+    title: "Personalized Study Abroad Advisory",
     description:
-      "Operates as a seamless extension of your school — aligned with your standards, co-branded with your identity, and delivered with complete discretion.",
-    icon: "Building2",
-  },
-  {
-    title: "Direct University Pathways",
-    description:
-      "Bypassing independent intermediaries to establish accredited, governed connections with 189+ selective universities across 25 countries.",
+      "Dedicated university matching, program selection, and personalized academic roadmap tailored to your child's goals and strengths.",
     icon: "Compass",
   },
   {
-    title: "Verified Credential Transmittal",
+    title: "Direct University Placement",
     description:
-      "Rigorous academic pre-assessment, standardized equivalencies, and direct institutional transmittals for maximum visa and admission success.",
+      "Connecting students with selective universities across the USA, Canada, the UK, and 25 countries worldwide.",
+    icon: "Building2",
+  },
+  {
+    title: "Application & Essay Coaching",
+    description:
+      "Meticulous academic review, personal statement editing, recommendation letters, and application submissions that stand out.",
     icon: "FileCheck2",
   },
   {
-    title: "Executive Mobility Dashboards",
+    title: "Parent Transparency & Updates",
     description:
-      "School leadership gains real-time oversight across applications, scholarships, and placement outcomes with annual mobility executive reports.",
+      "Parents stay informed at every milestone with clear timelines, admission offer tracking, and direct advisor communication.",
     icon: "FolderCheck",
   },
   {
-    title: "Compliance & Visa Assurance",
+    title: "Visa Coaching & Compliance Assurance",
     description:
-      "Proven 98% student visa success rate through compliance vetting, financial file validation, and embassy interview coaching.",
+      "Proven 98% student visa success rate through financial file validation, documentation auditing, and embassy interview coaching.",
     icon: "Plane",
   },
   {
-    title: "Curated Scholarship Allocation",
+    title: "Merit Scholarships & Tuition Guidance",
     description:
-      "Direct partner fee waivers, institutional fellowships, and merit funding guidance for high-achieving students.",
+      "Helping families position for merit-based scholarships, tuition fee waivers, and financial aid to reduce study costs.",
     icon: "Award",
   },
   {
-    title: "Milestone-Based Admissions",
+    title: "English Language Exam Preparation",
     description:
-      "Structured progression tracking from student profile intake to conditional offers, visa clearance, and campus enrolment.",
+      "Structured training for Duolingo English Test, IELTS, and TOEFL to meet North American university requirements.",
     icon: "BookOpen",
   },
   {
-    title: "Parent Visibility & Orientation",
+    title: "Pre-Departure, Housing & Arrival",
     description:
-      "Dedicated parent transparency portal, financial planning clarity, and complete pre-departure arrival support.",
+      "Complete student accommodation guidance, airport welcome in North America, and ongoing mentoring until graduation.",
     icon: "Luggage",
+  },
+];
+
+export const whatWeDoServices = [
+  {
+    step: "01",
+    title: "Early Academic Preparation",
+    subtitle: "Profile Building & Curriculum Strategy",
+    tagline: "Build a strong academic profile aligned with international standards.",
+    description:
+      "From subject selection to GPA optimization and career orientation, we guide high school students to build a strong academic profile aligned with U.S. and Canadian admission standards.",
+    points: [
+      "Academic pathway planning",
+      "Program and career alignment",
+      "Early strategy for competitive universities",
+    ],
+    icon: "BookOpen",
+    badge: "Early Preparation",
+  },
+  {
+    step: "02",
+    title: "English Language Training",
+    subtitle: "Strong English. Strong Confidence. Strong Results.",
+    tagline: "Master required English proficiency exams with confidence.",
+    description:
+      "We assess, train, and prepare students for required English exams (Duolingo, IELTS, TOEFL), ensuring they meet admission standards with confidence.",
+    points: [
+      "English level assessment",
+      "Test preparation roadmap",
+      "Interview communication coaching",
+    ],
+    icon: "Languages",
+    badge: "Test Prep & Fluency",
+  },
+  {
+    step: "03",
+    title: "University Admission & Placement",
+    subtitle: "From Confusion to Acceptance Letter",
+    tagline: "Strategic positioning for admission success in the U.S. and Canada.",
+    description:
+      "We guide students step by step through school selection, document preparation, personal statements, and submission — strategically positioning them for admission success in the U.S. and Canada.",
+    points: [
+      "Best-fit school matching",
+      "Application and essay review",
+      "Scholarship and transfer guidance",
+    ],
+    icon: "Building2",
+    badge: "Application Excellence",
+  },
+  {
+    step: "04",
+    title: "Visa & Financial Guidance",
+    subtitle: "Prepared. Structured. Confident.",
+    tagline: "Thorough documentation and embassy interview readiness.",
+    description:
+      "We help families understand financial proof requirements and visa processes to strengthen approval chances through meticulous file auditing and mock interview preparation.",
+    points: [
+      "Financial documentation guidance",
+      "Visa interview preparation",
+      "Compliance with immigration requirements",
+    ],
+    icon: "FileCheck2",
+    badge: "Visa Assurance",
+  },
+  {
+    step: "05",
+    title: "Arrival, Housing & Long-Term Mentoring",
+    subtitle: "Support Beyond Admission — Connected Until Graduation",
+    tagline: "Continuous support from airport arrival to college graduation.",
+    description:
+      "We don’t stop at admission. From airport arrival guidance to housing support, campus adaptation, academic mentoring, and transfer strategy — we stay connected until graduation.",
+    points: [
+      "Pre-departure orientation",
+      "Housing & arrival guidance",
+      "Academic check-ins and long-term success strategy",
+    ],
+    icon: "Compass",
+    badge: "Beyond Admission",
+  },
+];
+
+export const corePillars = [
+  {
+    title: "Clarity",
+    highlight: "Clear academic direction",
+    description: "Clear academic direction tailored to student strengths and long-term ambition.",
+  },
+  {
+    title: "Eligibility",
+    highlight: "Honest eligibility assessment",
+    description: "Honest eligibility assessment across U.S. and Canadian admission standards.",
+  },
+  {
+    title: "Strategy",
+    highlight: "Personalized success roadmap",
+    description: "Personalized success roadmap maximizing scholarship opportunities and visa success.",
+  },
+];
+
+export const whatWeDoPillars = [
+  {
+    title: "Structured & Transparent Process",
+    highlight: "We don’t guess. We plan.",
+    description:
+      "From university selection to visa preparation, every step is clearly explained so students and families feel confident — not overwhelmed.",
+  },
+  {
+    title: "Scholarships & Smart Financial Guidance",
+    highlight: "Maximizing merit aid and realistic budgeting.",
+    description:
+      "We help students position themselves for merit-based scholarships and choose realistic programs aligned with their budget and goals.",
+  },
+  {
+    title: "Support Beyond Admission",
+    highlight: "Admission is just the beginning.",
+    description:
+      "We assist with pre-departure preparation, housing guidance, arrival orientation, and ongoing mentoring so students settle successfully in the U.S. and Canada.",
+  },
+];
+
+export const whatWeDoStats = [
+  { value: "+5k", label: "Students Guided", sublabel: "Over 5,000 Families Supported" },
+  {
+    value: "$3M+",
+    label: "Scholarships Secured",
+    sublabel: "Merit-based and university scholarships awarded",
+  },
+  {
+    value: "10+",
+    label: "Years of Commitment",
+    sublabel: "Through guidance, strategy, and personalized support",
+  },
+  {
+    value: "100%",
+    label: "Pre-Departure & Arrival Support",
+    sublabel: "Housing & airport preparation — we don’t leave students alone",
+  },
+];
+
+export const realStoriesVideos = [
+  {
+    id: "bocar-diallo",
+    person: "Bocar Diallo",
+    role: "International Student",
+    title: "Bocar Diallo — Student Success Story",
+    category: "Student Testimonial",
+    destination: "North America Admissions & Scholarship",
+    quote: "Edu-X provided me with clarity and strategic guidance at every step of my university application.",
+    duration: "0:13",
+    poster: "https://static.wixstatic.com/media/e87925_71ee13a21f4b4e979437cceb85acd8a2f000.jpg",
+    videoUrl: "https://video.wixstatic.com/video/e87925_71ee13a21f4b4e979437cceb85acd8a2/720p/mp4/file.mp4",
+  },
+  {
+    id: "sidy-sow",
+    person: "Sidy Sow",
+    role: "Enrolled Student in Canada",
+    title: "Sidy Sow — Airport Arrival & On-Campus Welcome",
+    category: "Arrival & Housing",
+    destination: "Montreal, Canada",
+    quote: "From my flight to airport pickup and moving into residence, Edu-X was right there beside me.",
+    duration: "2:03",
+    poster: "https://static.wixstatic.com/media/e87925_649eded3cad247c8bf6809557aa21351f000.jpg",
+    videoUrl: "https://video.wixstatic.com/video/e87925_649eded3cad247c8bf6809557aa21351/720p/mp4/file.mp4",
+  },
+  {
+    id: "mamady",
+    person: "Mamady",
+    role: "International Student",
+    title: "Mamady — Student Housing Experience & Settling In",
+    category: "Arrival & Housing",
+    destination: "Montreal Student Living",
+    quote: "Finding safe, verified student accommodation abroad made the whole transition smooth and stress-free.",
+    duration: "1:04",
+    poster: "https://static.wixstatic.com/media/e87925_a1afbe73ded448d2b274478fdc26c459f000.jpg",
+    videoUrl: "https://video.wixstatic.com/video/e87925_a1afbe73ded448d2b274478fdc26c459/720p/mp4/file.mp4",
+  },
+  {
+    id: "djinde-cisse",
+    person: "Djinde Cissé",
+    role: "U.S. Visa Grant Recipient",
+    title: "Djinde Cissé — Visa Approval Testimonial",
+    category: "Visa Success",
+    destination: "United States University Admission",
+    quote: "Thorough documentation prep and mock interviews gave me complete confidence at the consulate.",
+    duration: "0:21",
+    poster: "https://static.wixstatic.com/media/e87925_2d22b80f54dd46efa20e61dcc0b0b1bbf000.jpg",
+    videoUrl: "https://video.wixstatic.com/video/e87925_2d22b80f54dd46efa20e61dcc0b0b1bb/720p/mp4/file.mp4",
+  },
+  {
+    id: "elysee-sidibe",
+    person: "Mr. Elysée Sidibé",
+    role: "Parent of Outbound Student",
+    title: "Mr. Elysée Sidibé — Parent Trust & Guidance",
+    category: "Parents & Leadership",
+    destination: "Family Partnership",
+    quote: "As a parent, having constant communication and a structured roadmap gave our family total peace of mind.",
+    duration: "1:00",
+    poster: "https://static.wixstatic.com/media/e87925_458094ea39bb4b28a8ba783ab9c370d8f000.jpg",
+    videoUrl: "https://video.wixstatic.com/video/e87925_458094ea39bb4b28a8ba783ab9c370d8/720p/mp4/file.mp4",
+  },
+  {
+    id: "accueil-installation",
+    person: "Edu-X Ground Operations",
+    role: "Arrival & Settlement Support",
+    title: "Arrival & Settlement Journey — From Airport to Campus",
+    category: "Arrival & Housing",
+    destination: "Campus Arrival Protocol",
+    quote: "We don't stop at visa approval. Our team welcomes students in North America and ensures their successful orientation.",
+    duration: "2:40",
+    poster: "https://static.wixstatic.com/media/e87925_9593dfa47ca24b338f0abdba2f007256f000.jpg",
+    videoUrl: "https://video.wixstatic.com/video/e87925_9593dfa47ca24b338f0abdba2f007256/720p/mp4/file.mp4",
+  },
+  {
+    id: "moussa-arrival",
+    person: "Moussa",
+    role: "Enrolled Student",
+    title: "Moussa — Arrival & First Days on Campus",
+    category: "Arrival & Housing",
+    destination: "North America Campus Journey",
+    quote: "Arriving in a new country was exciting rather than intimidating because Edu-X prepared every detail.",
+    duration: "1:25",
+    poster: "https://static.wixstatic.com/media/e87925_ec859771a34f4697b71c9bb9824b4de3f000.jpg",
+    videoUrl: "https://video.wixstatic.com/video/e87925_ec859771a34f4697b71c9bb9824b4de3/720p/mp4/file.mp4",
+  },
+  {
+    id: "rouki-arrival",
+    person: "Rouki",
+    role: "University Student",
+    title: "Rouki — Student Arrival & University Reception",
+    category: "Arrival & Housing",
+    destination: "University Orientation & Mentoring",
+    quote: "Edu-X helped me choose the right program and stayed with me through orientation week.",
+    duration: "1:45",
+    poster: "https://static.wixstatic.com/media/e87925_eb65f98eafa543cb8ff279cb61541f64f000.jpg",
+    videoUrl: "https://video.wixstatic.com/video/e87925_eb65f98eafa543cb8ff279cb61541f64/720p/mp4/file.mp4",
+  },
+  {
+    id: "moussa-s-visa",
+    person: "Moussa S.",
+    role: "U.S. Visa Approved Student",
+    title: "Moussa S. — Visa Interview & Approval Story",
+    category: "Visa Success",
+    destination: "Financial Vetting & Visa Stamp",
+    quote: "The interview simulation matched the embassy officer's questions point-by-point. Approved on first attempt!",
+    duration: "0:22",
+    poster: "https://static.wixstatic.com/media/e87925_f276ce39c12c4c7597704ac673ecc741f000.jpg",
+    videoUrl: "https://video.wixstatic.com/video/e87925_f276ce39c12c4c7597704ac673ecc741/720p/mp4/file.mp4",
+  },
+  {
+    id: "dr-traore",
+    person: "Dr. Traoré",
+    role: "Academic Leader & Educator",
+    title: "Dr. Traoré — Academic Leadership Review",
+    category: "Parents & Leadership",
+    destination: "Proven Mentorship & Academic Rigor",
+    quote: "Edu-X sets the benchmark for international academic mobility in West Africa, safeguarding student futures.",
+    duration: "4:57",
+    poster: "https://static.wixstatic.com/media/e87925_d50d06d06aad4471a34c17876b2fc941f000.jpg",
+    videoUrl: "https://video.wixstatic.com/video/e87925_d50d06d06aad4471a34c17876b2fc941/720p/mp4/file.mp4",
+  },
+  {
+    id: "parent-review",
+    person: "Témoignage Parent d'Élève",
+    role: "Parent of Outbound Student",
+    title: "Parent Reflection — Transparent Guidance & Support",
+    category: "Parents & Leadership",
+    destination: "Family Partnership",
+    quote: "We never felt left in the dark. Every milestone was documented, explained, and successfully met.",
+    duration: "2:38",
+    poster: "https://static.wixstatic.com/media/e87925_2eb7df3111ac4a97b0056f3a3a658767f000.jpg",
+    videoUrl: "https://video.wixstatic.com/video/e87925_2eb7df3111ac4a97b0056f3a3a658767/720p/mp4/file.mp4",
+  },
+  {
+    id: "student-journey-review",
+    person: "Edu-X Mobility Scholar",
+    role: "Undergraduate Student",
+    title: "Student Journey Review — From Profile to Placement",
+    category: "Student Testimonial",
+    destination: "Comprehensive Mobility Program",
+    quote: "The leader training program and academic counseling prepared me to excel in my university coursework.",
+    duration: "1:20",
+    poster: "https://static.wixstatic.com/media/e87925_ad8b0aab051946f4b21200e0c67e01c7f000.jpg",
+    videoUrl: "https://video.wixstatic.com/video/e87925_ad8b0aab051946f4b21200e0c67e01c7/720p/mp4/file.mp4",
+  },
+];
+
+export const studentVoicesQuotes = [
+  {
+    name: "Mamadou Diouf",
+    detail: "Studying Artificial Intelligence in Canada",
+    quote:
+      "Edu-X made studying AI in Canada possible for me. From admission to visa and housing in Montréal, everything was structured and clear. I arrived prepared and confident.",
+    badge: "AI Scholar in Canada",
+  },
+  {
+    name: "Fatoumata Guindo",
+    detail: "Admitted to Emory University (USA)",
+    quote:
+      "Getting into Emory required strategy and preparation. Edu-X helped me present a strong application and supported me even after arrival. Their mentoring program truly made the difference.",
+    badge: "Emory University Admit",
+  },
+  {
+    name: "Mr. Stéphane Toupane",
+    detail: "Parent of Outbound Student",
+    quote:
+      "I discovered Edu-X Services and realized it’s not just an agency — it’s a team that truly takes your daughter under their wing, listens to her, advises her, and guides her every step of the way.",
+    badge: "Parent Partnership",
   },
 ];
 export const processSteps = [
   {
-    title: "Phase 01: Pre-Screening Dialogue",
+    title: "Step 01: Free Family Consultation",
     description:
-      "Institutional profile review and strategic alignment to ensure shared standards of academic rigor.",
+      "We discuss your child's academic aspirations, family budget, and career goals to perform an honest eligibility assessment.",
   },
   {
-    title: "Phase 02: Strategic Leadership Interview",
+    title: "Step 02: Best-Fit University & Scholarship Plan",
     description:
-      "Executive alignment consultation with Edu-X Services leadership to evaluate international pathways capacity.",
+      "We build a personalized roadmap matching programs in the USA & Canada, identifying merit scholarships to ease the financial investment.",
   },
   {
-    title: "Phase 03: Private Portal Demonstration",
+    title: "Step 03: Applications, Essays & Admission Offers",
     description:
-      "Exclusive demonstration of your co-branded institutional portal, parent console, and reporting dashboard.",
+      "Step-by-step guidance through document collation, personal statements, recommendation letters, and university submissions.",
   },
   {
-    title: "Phase 04: Founding Cohort Activation",
+    title: "Step 04: Visa File Auditing & Arrival Settlement",
     description:
-      "Structured pilot cohort launch with full infrastructure deployment, admissions workflows, and university pipelines.",
+      "Thorough financial documentation review, mock interview coaching for 98% visa success, housing bookings, and airport welcome.",
   },
 ];
 export const founderLetter = {
-  author: "Mrs Konate Djenabou Diawara",
-  title: "African Student Mobility Expert",
-  organization: "Founder & Director, Education eXcellence Services",
+  author: "Mrs KONATE Djenabou Diawara",
+  title: "Founder & Executive Director",
+  organization: "Education eXcellence Services (Edu-X Services)",
   image: founderImageFile,
   fallbackImage: founderImageFile,
-  headline: "A Message to Africa's Educational Leaders",
-  tagline: "Guiding Students. Creating Futures. Changing Lives.",
-  quote: "Because institutional excellence is not accidental. It is engineered.",
-  coverageStat: "25 Countries · 189 Universities",
-  launchStat: "Partner Schools · 2026",
+  headline: "A Letter from the Founder",
+  tagline: "From Africa to the World — Transforming Uncertainty into Direction",
+  quote: "Excellence should never be accidental. It should be intentional.",
+  coverageStat: "USA & Canada Specialization",
+  launchStat: "Columbia University Alumna",
   paragraphs: [
-    "Across the African continent, a profound shift is underway. A new generation of students is rising from schools defined by academic rigour, ambition, and a global outlook. These students are not only prepared to access international opportunities — they are prepared to lead within it.",
-    "Yet for many of the institutions that shape them, one challenge remains: the absence of a fully integrated framework for international academic mobility. Counselling may be present. Admissions guidance may be available. But in most cases, no formal international department exists — equipped with the systems, oversight, and long-term architecture required to manage global pathways at an institutional level.",
-    "For schools that hold themselves to the highest standard, this is not a secondary concern. It is a defining opportunity.",
-    "Education eXcellence Services was established to meet that need — not as an external service, but as a strategic institutional framework through which selected schools can strengthen their international capability with greater structure, credibility, and coherence.",
-    "Through Education eXcellence Services, partner schools formalise and elevate this function: a co-branded international pathways department embedded within the institution, centralised oversight of applications and scholarship activity, executive-level reporting on mobility outcomes, and structured advisory systems that combine expert human guidance with intelligent technology.",
-    "In the years ahead, the schools that distinguish themselves will not be those that simply offer access to study abroad. They will be those that demonstrate disciplined systems, measurable outcomes, and institutional accountability around global academic pathways.",
-    "This is where structure becomes strategy.",
-    "We are intentionally selective in the institutions we serve. Our commitment is to enduring partnership with schools that value excellence, governance, and lasting impact.",
-    "If your institution shares that conviction, we welcome the opportunity to engage.",
-    "Because institutional excellence is not accidental. It is engineered.",
+    "When I left Mali to pursue my studies in the United States, I believed that hard work alone would be enough.",
+    "I quickly learned that ambition, while powerful, is not sufficient without structure, guidance, and strategic positioning.",
+    "Like many African students, I entered the U.S. education system without fully understanding its complexity — the academic pathways, institutional expectations, cultural dynamics, and unspoken rules that determine long-term success.",
+    "What I witnessed was sobering. Among the students who began that journey with me, very few completed it on time. Not because they lacked intelligence. Not because they lacked drive. But because they lacked a roadmap.",
+    "That experience shaped my conviction: African talent is capable of competing at the highest global level — when properly prepared.",
+    "Edu-X was built on that belief.",
+    "We are not simply an admission agency. We are a strategic bridge between Africa and North America’s leading universities. We focus on positioning — academically, culturally, and professionally.",
+    "We prepare students not only to gain admission, but to thrive. We support families not only with paperwork, but with clarity and confidence.",
+    "Our mission is deliberate: To ensure that African talent is guided, structured, and equipped to succeed in the world’s most competitive academic environments.",
+    "Excellence should never be accidental. It should be intentional.",
+    "Through Edu-X, my personal journey has become a collective pathway — one that transforms uncertainty into direction, and ambition into achievement. From Africa to the World.",
   ],
 };
+
+export const credentials = [
+  {
+    title: "Academic Foundation — Columbia University",
+    badge: "Ivy League Foundation",
+    description:
+      "A bachelor’s degree earned within one of the world’s most rigorous academic environments, providing firsthand experience navigating the U.S. higher education system at the highest level.",
+  },
+  {
+    title: "ICEF Agency Trusted Certification",
+    badge: "Global Compliance",
+    description:
+      "Recognition aligned with international standards in ethical student counselling and global university collaboration.",
+  },
+  {
+    title: "ICEF Canada Course Graduate Credential",
+    badge: "Canadian Mobility",
+    description:
+      "Advanced training in Canadian education systems, visa regulations, and admissions best practices.",
+  },
+  {
+    title: "Duolingo English Test Partner Certification",
+    badge: "Official Test Partner",
+    description:
+      "Verified expertise in guiding students through approved English proficiency pathways recognized by North American institutions.",
+  },
+  {
+    title: "Excellence Recognition — Lycée Sacré Cœur “Excelsior 2024”",
+    badge: "Academic Impact",
+    description:
+      "Awarded for measurable impact in preparing students for international academic success.",
+  },
+  {
+    title: "Scholarship Recognition — Thompson Rivers University",
+    badge: "University Award",
+    description:
+      "Documented scholarship outcomes secured for students through strategic application positioning and university alignment.",
+  },
+];
+
+export const leadershipPrograms = [
+  {
+    id: "leader-coaching",
+    title: "Leader Training Program",
+    subtitle: "Structured Coaching for Long-Term Success",
+    description:
+      "Through guided coaching, students develop essential habits for university and lifelong leadership.",
+    points: [
+      "Confidence & self-discipline",
+      "Strategic goal-setting habits",
+      "Strong communication skills",
+      "Vision-driven leadership",
+    ],
+  },
+  {
+    id: "seminars-workshops",
+    title: "Seminars & Workshops",
+    subtitle: "Practical. Strategic. University-Focused.",
+    description:
+      "Interactive sessions equipping students to navigate high-stakes academic environments and major selection.",
+    points: [
+      "Leadership & public speaking",
+      "Academic excellence strategies",
+      "Career clarity & major selection",
+      "Personal branding for university applications",
+    ],
+  },
+  {
+    id: "monthly-activities",
+    title: "Monthly Leadership Activities",
+    subtitle: "Build Real Experience — Not Just Certificates",
+    description:
+      "Active engagement ensuring students build tangible extracurricular profiles for competitive admissions.",
+    points: [
+      "Community impact projects",
+      "Networking events with professionals",
+      "Mentorship circles",
+      "Skill-building challenges",
+    ],
+  },
+  {
+    id: "global-mindset",
+    title: "Global Mindset Development",
+    subtitle: "Think Beyond Borders. Compete Globally.",
+    description:
+      "Studying abroad requires more than ambition — it requires cultural intelligence and adaptability.",
+    points: [
+      "International education systems",
+      "Cross-cultural communication",
+      "Global career pathways",
+      "World-class standards of excellence",
+    ],
+  },
+];
+
+export const communityImpact = {
+  headline:
+    "At Edu-X Services, community impact is not a side initiative — it is at the heart of our mission.",
+  subhead:
+    "We believe that talent exists everywhere in Africa. What is often missing is recognition, exposure, and access to opportunity. Through our annual initiatives in Mali, we celebrate excellence, reward discipline, and open doors to global education.",
+  gala: {
+    title: "Gala Dinner of Excellence in Mali",
+    subtitle: "Recognizing the Top 10 Students in the Country",
+    description:
+      "Each year, Edu-X organizes a prestigious Gala Dinner of Excellence in Mali to recognize the Top 10 students in the country. This event brings together students, parents, school leaders, community partners, and national stakeholders.",
+    goals: [
+      "Build a culture of academic excellence",
+      "Inspire students to think globally",
+      "Encourage families to believe in international opportunities",
+      "Create visible success stories that motivate an entire generation",
+    ],
+  },
+  competition: {
+    title: "“Question pour un Excellent” Live Academic Competition",
+    subtitle: "High-level intellectual competition across disciplines",
+    description:
+      "Inspired by intellectual challenge and academic rigor, this live event allows students to compete publicly by answering high-level academic questions across disciplines. The energy is powerful, the competition is intense, and the impact is transformative.",
+    reward: "The winner receives a full scholarship to study in the United States.",
+  },
+};
+
+export const faqs = [
+  {
+    q: "What is Edu-X Services?",
+    a: "Education eXcellence Services (Edu-X) is an international education consulting and mobility platform that guides African students to study in the United States and Canada. We provide structured guidance from program selection, university application, and scholarship search to pre-departure orientation, arrival & housing, and ongoing mentoring.",
+  },
+  {
+    q: "Do you guarantee admission or visa approval?",
+    a: "No ethical institution can guarantee admission or visa approval. However, we assess academic readiness, match students with realistic options, guide them through every required step, and prepare them for interviews and documentation. Our strength is strategic positioning and preparation.",
+  },
+  {
+    q: "What makes Edu-X different?",
+    a: "We combine real lived experience (our Founder studied in the U.S. at Columbia University), modern technology infrastructure, a continental African vision, and a leadership development mindset. We guide students to study, thrive, and return stronger.",
+  },
+  {
+    q: "What support is provided after visa issuance?",
+    a: "We don't stop at admission. We assist with pre-departure preparation, housing guidance, arrival orientation, and ongoing mentoring so students settle successfully in the U.S. and Canada.",
+  },
+];
+
 export const testimonials = [
   {
-    name: "M. Mamadou Diallo",
-    place: "Academic Director, Lycée d'Excellence Dakar",
+    name: "Mamadou Diouf",
+    place: "Student in Montreal, Canada — Artificial Intelligence",
     rating: 5,
     quote:
-      "The embedded framework transformed how our lycée handles global university applications. Our students secured admissions to selective programs in Canada and the UK with partial scholarships.",
+      "Edu-X made studying AI in Canada possible for me. From admission to visa and housing in Montréal, everything was structured and clear. I arrived prepared and confident.",
   },
   {
-    name: "Dr. Ngozi Adebayo",
-    place: "Principal, Premiere Academy Lagos",
+    name: "Fatoumata Guindo",
+    place: "Undergraduate Scholar, Emory University (USA)",
     rating: 5,
     quote:
-      "Having an executive dashboard with live visa and offer status gave our board total clarity. Parents now see our school as genuinely globally connected.",
+      "Getting into Emory required strategy and preparation. Edu-X helped me present a strong application and supported me even after arrival. Their mentoring program truly made the difference.",
   },
   {
-    name: "M. Jean-Paul Traoré",
-    place: "Head of School, Groupe Scolaire International Abidjan",
+    name: "Mr. Stéphane Toupane",
+    place: "Parent of Outbound Student in Canada",
     rating: 5,
     quote:
-      "From curriculum mapping to visa compliance, Edu-X Services operates as a disciplined, invisible department inside our campus.",
+      "I discovered Edu-X Services and realized it’s not just an agency — it’s a team that truly takes your daughter under their wing, listens to her, advises her, and guides her every step of the way.",
   },
   {
-    name: "Dr. David Kamau",
-    place: "Head of Institution, Nairobi International School",
+    name: "Mr. Elysée Sidibé",
+    place: "Parent of Outbound Student in the USA",
     rating: 5,
     quote:
-      "We bypassed commercial recruiters entirely. The direct, governed university pipelines gave our families immense confidence.",
+      "As a parent, having constant communication and a structured roadmap gave our family total peace of mind. Every milestone was clearly documented and achieved.",
   },
   {
-    name: "Mme. Aminata Sow",
-    place: "Senior College Counsellor, Dakar",
+    name: "Djinde Cissé",
+    place: "U.S. Visa Grant Recipient",
     rating: 5,
     quote:
-      "The 98% visa success rate speaks for itself. The compliance and legal directorate thoroughly vets every financial and academic file before embassy submission.",
+      "Thorough financial documentation review and mock interview practice gave me complete confidence before my embassy appointment. Approved on my first attempt!",
   },
 ];
+
 export const events = [
   {
-    title: "Africa-Global University Leadership Summit 2026",
+    title: "Study in USA & Canada: Parent & Student Information Fair 2026",
     date: "14 November 2026",
     time: "09:30 AM - 05:00 PM GMT",
-    location: "Dakar Regional Hub & Radisson Blu, Senegal",
+    location: "Dakar Regional Office & Radisson Blu, Senegal",
     online: false,
     description:
-      "Gathering 45+ African school principals and delegates from 30+ selective universities across the UK, USA, and Canada.",
+      "Meet admissions representatives and Edu-X advisors in person to review top university programs, scholarships, and admission criteria.",
   },
   {
-    title: "Direct Admission & Scholarship Briefing: UK & Canada",
+    title: "Mastering the Student Visa: Financial Proof & Embassy Interview Prep",
     date: "28 November 2026",
     time: "04:00 PM GMT",
-    location: "Online Executive Briefing",
+    location: "Live Interactive Webinar",
     online: true,
     description:
-      "A closed-door briefing for high school counsellors on institutional partner fee waivers, January/September intakes, and PAL documentation.",
+      "Essential guidance for parents and students on meeting Canadian PAL and U.S. I-20 financial requirements and passing consular interviews.",
   },
   {
-    title: "Institutional Pathways Executive Round-table",
+    title: "North America Scholarships & Tuition Waivers: Practical Strategy",
     date: "12 December 2026",
-    time: "11:00 AM - 04:00 PM WAT",
-    location: "Lagos Liaison Office, Nigeria",
-    online: false,
-    description:
-      "Strategic round-table for school proprietors and rectors on governance, outbound student tracking, and international curriculum alignment.",
-  },
-  {
-    title: "Continental Student Mobility & Visa Compliance Forum",
-    date: "10 January 2027",
-    time: "03:00 PM EAT",
-    location: "Nairobi Liaison Office & Virtual Stream",
+    time: "11:00 AM - 01:00 PM GMT",
+    location: "Dakar Plateau Hub & Virtual Stream",
     online: true,
     description:
-      "A deep dive into student visa regulatory updates across North America, Europe, and the UK, with pre-compliance strategies.",
+      "How African high school seniors and university graduates can position their profiles for merit-based scholarships and partial tuition waivers.",
+  },
+  {
+    title: "Pre-Departure & Student Housing Orientation: Montreal & US Campuses",
+    date: "10 January 2027",
+    time: "03:00 PM GMT",
+    location: "Virtual Orientation for Outbound Families",
+    online: true,
+    description:
+      "A complete walkthrough for outbound students and parents covering verified dorms, airport arrival, health insurance, and banking abroad.",
   },
 ];
+
 export const blogs = [
   {
-    slug: "building-embedded-international-department",
-    category: "Institutional Governance",
-    title: "Building an Embedded International Department: A Blueprint for African Schools",
+    slug: "how-to-study-in-usa-and-canada-from-africa",
+    category: "Student Guide",
+    title: "How to Study in the USA & Canada: The Complete Guide for African Students",
     date: "18 October 2026",
     excerpt:
-      "Why forward-looking schools are moving beyond ad-hoc recruitment agencies to implement a permanent, co-branded pathways department.",
+      "A complete roadmap from high school subject selection and Duolingo prep to university acceptance and campus arrival.",
     image: "blog-visa",
   },
   {
     slug: "the-98-percent-visa-standard",
-    category: "Compliance & Legal",
-    title: "The 98% Visa Standard: How Pre-Compliance Vetting Protects Student Mobility",
+    category: "Visa & Financing",
+    title: "The 98% Visa Standard: How Families Can Prepare Bulletproof Financial Files",
     date: "29 September 2026",
     excerpt:
-      "A look inside the rigorous financial and academic verification processes that deliver near-perfect visa success across African applicant cohorts.",
+      "Essential insights on Canadian PAL requirements, U.S. bank statements, sponsorship affidavits, and mock interview practice.",
     image: "blog-planning",
   },
   {
     slug: "global-university-scholarships-african-students",
-    category: "Scholarships & Funding",
-    title: "Global University Scholarships: Securing Merit & Partner Fee Waivers",
+    category: "Scholarships & Aid",
+    title: "Securing Merit Scholarships: How African Students Can Reduce Tuition Costs",
     date: "12 September 2026",
     excerpt:
-      "How partner school students access institutional fee waivers, departmental bursaries, and external fellowships before applying.",
+      "Discover how our students access university merit awards, departmental bursaries, and tuition discounts before applying.",
     image: "blog-scholarship",
   },
 ];
+
 export const whyChooseUs = [
   {
-    title: "School-Embedded Framework",
+    title: "Personalized Guidance for Every Family",
     description:
-      "Not an agency or recruiter. We integrate directly into your institution's governance, academic calendar, and brand identity.",
+      "We don't treat you like a number. Our advisors take time to understand your child's passions, academic profile, and family budget.",
   },
   {
     title: "189+ Universities across 25 Countries",
     description:
-      "Accredited pathways to selective institutions across the UK, USA, Canada, Europe, Asia, and Oceania.",
+      "Direct admissions pathways to selective universities across the USA, Canada, UK, Europe, and beyond.",
   },
   {
-    title: "98% Proven Visa Success",
+    title: "98% Proven Visa Success Rate",
     description:
-      "Rigorous compliance directorate and financial file vetting delivering near-perfect student visa approval rates.",
+      "Meticulous financial file validation and realistic consular interview simulations ensure families feel confident at the embassy.",
   },
   {
-    title: "Executive Dashboards",
+    title: "Total Transparency for Parents",
     description:
-      "School leadership retains complete ownership, audit trails, and live status of every outbound student application.",
+      "Honest eligibility assessments, clear cost estimates, and regular progress updates so parents never feel in the dark.",
   },
   {
-    title: "Intelligent System + Human Expertise",
+    title: "Columbia University-Trained Mentorship",
     description:
-      "Combining real-time course directory technology with seasoned student mobility advisors at every milestone.",
+      "Guidance backed by authentic lived experience navigating the Ivy League and North American higher education systems.",
   },
   {
-    title: "Exclusive & Invitation-Based",
+    title: "End-to-End Support Beyond Admission",
     description:
-      "High-trust partnership model reserved for African institutions committed to academic rigor and student success.",
+      "From pre-departure orientation and student housing in North America to campus adaptation and ongoing academic check-ins.",
   },
 ];
+
 export const contactInfo = {
   brand: "Education eXcellence Services",
   brandShort: "Edu-X Services",
   portalName: "Education eXcellence Services Portal",
   portalShort: "Edu-X Services",
-  tagline: "Guiding Students. Creating Futures. Changing Lives.",
+  tagline: "Personalized guidance for ambitious students pursuing academic excellence",
   subTagline:
-    "Built for schools that raise the standard of education. Engineered to connect them to the world’s most selective universities.",
-  founder: "Mrs Konate Djenabou Diawara",
-  founderTitle: "African Student Mobility Expert",
-  founderRole: "Founder & Director, Education eXcellence Services",
+    "The leading study abroad agency in Senegal, guiding African students into top US and Canadian universities. Admission, visa, scholarships.",
+  founder: "Mrs KONATE Djenabou Diawara",
+  founderTitle: "Founder & Executive Director",
+  founderRole: "Founder & Executive Director, Education eXcellence Services",
   founderImage: founderImageFile,
-  email: "partnerships@edu-xservices.com",
+  email: "contact@edu-xservices.com",
   portalEmail: "partnerships@edu-xservices.com",
   phone: "+221 33 848 38 12",
   phoneClean: "221338483812",
   whatsapp: "221338483812",
-  address: "Avenue Malick Sy, Dakar Plateau, Dakar, Senegal",
+  address: "AV Malick Sy Face Central, Immeuble 10, suite 21, Dakar Plateau, Dakar, Sénégal",
   hubs: ["Dakar (Headquarters)", "Lagos", "Nairobi", "London Liaison"],
   programCount: "96,083+",
   countryCount: "25+",

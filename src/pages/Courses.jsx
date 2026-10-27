@@ -28,7 +28,7 @@ function CoursesPage() {
           <p className="mx-auto mt-4 max-w-2xl text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
             Browse international programs from top partner institutions across 25 global
             destinations. Filter by country, study stream, degree level, tuition fees, and
-            institutional scholarships.
+            available scholarships.
           </p>
         </div>
       </section>

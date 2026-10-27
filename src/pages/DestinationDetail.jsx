@@ -50,13 +50,13 @@ function CountryPage() {
               size="lg"
               className="bg-[#B21941] hover:bg-[#8e1233] text-white font-bold text-sm shadow-lg"
             >
-              <Link to="/contact">Request Institutional Briefing</Link>
+              <Link to="/contact">Book Free Consultation</Link>
             </Button>
             <Button
               asChild
               size="lg"
               variant="outline"
-              className="border-white/40 bg-white/10 hover:bg-white/20 text-white hover:text-white font-bold text-sm backdrop-blur-md shadow-sm transition-all"
+              className="border-white/40 bg-white/10 hover:bg-white/20 text-white hover:text-white font-bold text-sm shadow-sm transition-all"
             >
               <Link to="/courses">Browse {d.name} Courses</Link>
             </Button>

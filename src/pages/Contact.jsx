@@ -3,9 +3,9 @@ import { EnquiryForm } from "@/components/site/EnquiryForm";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { Button } from "@/components/ui/button";
 import { contactInfo } from "@/data/site";
-const title = "Contact Us | Education eXcellence Services (Edu-X Services)";
+const title = "Contact Edu-X — Study in Canada & in the USA";
 const description =
-  "Connect with Education eXcellence Services — International Department Framework in Dakar, Lagos, and Nairobi. Schedule an institutional consultation, call +221 33 848 38 12, or email partnerships@edu-xservices.com.";
+  "Questions about studying in the USA or Canada from Senegal or Mali? Contact our Dakar Plateau office. We respond within 24 hours. AV Malick Sy, Immeuble 10, Suite 21.";
 function ContactPage() {
   return (
     <>
@@ -19,18 +19,16 @@ function ContactPage() {
         <div className="container-page relative z-10 text-center max-w-3xl animate-fade-in-up">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[#E8A0B0] text-xs font-bold tracking-wide uppercase mb-4 animate-pulse-subtle">
             <ShieldCheck className="size-3.5 text-[#B21941]" />
-            <span>Institutional Engagement &amp; Pre-Screening</span>
+            <span>Dakar Plateau Office • Responding within 24 Hours</span>
           </div>
           <h1 className="text-3xl font-extrabold sm:text-5xl text-white tracking-tight leading-tight">
-            Connect with the{" "}
+            Contact Edu-X —{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-200 to-amber-200 animate-gradient-shift">
-              International Department
+              Study in the USA &amp; Canada
             </span>
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
-            Speak with our admissions advisors and regional compliance officers at Education
-            eXcellence Services (Edu-X Services) to begin your academic pathway or partner school
-            integration today.
+            Questions about studying in the USA or Canada from Senegal, Mali, or across Africa? Contact our Dakar Plateau office or schedule a free consultation. Our team responds within 24 hours.
           </p>
         </div>
       </section>
@@ -53,7 +51,7 @@ function ContactPage() {
                 {contactInfo.phone}
               </a>
               <span className="text-xs text-muted-foreground">
-                Helpline for schools, counsellors &amp; families
+                Helpline for students, parents &amp; families
               </span>
             </div>
 
@@ -62,7 +60,7 @@ function ContactPage() {
                 <Mail className="size-6 text-[#E8A0B0] transition-colors group-hover:text-white" />
               </div>
               <h3 className="font-bold text-base text-foreground mb-1 transition-colors group-hover:text-[#B21941]">
-                Partnerships &amp; Admissions
+                Student &amp; Family Inquiries
               </h3>
               <a
                 href={`mailto:${contactInfo.email}`}
@@ -96,7 +94,7 @@ function ContactPage() {
         </div>
       </section>
 
-      {/* Book a Meeting / Institutional Consultation Form Section */}
+      {/* Book a Meeting / Family Consultation Form Section */}
       <section
         id="book-meeting"
         className="py-14 bg-gradient-to-b from-white via-slate-50/40 to-white"
@@ -104,15 +102,14 @@ function ContactPage() {
         <div className="container-page max-w-6xl">
           <div className="text-center max-w-3xl mx-auto mb-10">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#B21941]/10 text-[#B21941] text-xs font-bold tracking-wide uppercase mb-3">
-              Institutional Partnership &amp; Meeting Request
+              Free Consultation Request
             </div>
             <h2 className="text-2xl sm:text-4xl font-extrabold text-[#061A3A] tracking-tight">
-              Book an Institutional Consultation Meeting
+              Book a Free Consultation with an Advisor
             </h2>
             <p className="mt-3 text-sm sm:text-base text-muted-foreground leading-relaxed">
-              Complete the institutional pre-screening criteria below. Our admissions leadership and
-              compliance directorate evaluate institutional alignment and schedule an executive
-              briefing within 24 to 48 hours.
+              Tell us about your academic background, target destination, and study goals. Our Dakar
+              advisors will review your profile and contact you within 24 hours.
             </p>
           </div>
 
@@ -120,32 +117,32 @@ function ContactPage() {
         </div>
       </section>
 
-      {/* Regional Directorate Office & Interactive Map */}
+      {/* Regional Office & Interactive Map */}
       <section className="py-14 bg-slate-50 border-t border-border">
         <div className="container-page grid gap-8 lg:grid-cols-2 lg:items-center">
           <div className="card-hover rounded-3xl border border-border bg-card p-8 shadow-sm space-y-5 transition-all duration-300 hover:border-[#B21941]/40">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-bold uppercase animate-pulse-subtle">
-              Physical Presence &amp; Oversight
+              Physical Presence &amp; Support
             </div>
             <h3 className="text-xl sm:text-2xl font-bold text-foreground flex items-center gap-2.5">
-              <Building2 className="size-6 text-[#B21941]" /> Edu-X Services Regional Directorate
+              <Building2 className="size-6 text-[#B21941]" /> Edu-X Student &amp; Family Advisory Center
             </h3>
             <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-              Our regional directorate manages institutional screening, university partner
-              pipelines, and compliance oversight across Francophone and Anglophone Africa.
+              Our Dakar Plateau office welcomes students and parents for in-person advisory sessions,
+              document verification, and personalized university and visa strategy discussions.
             </p>
             <div className="pt-2 flex flex-wrap gap-3">
               <Button
                 asChild
                 size="sm"
-                className="btn-interactive animate-pulse-subtle bg-[#B21941] hover:bg-[#8e1233] text-white font-bold text-xs rounded-xl h-11 px-5 shadow-sm hover:shadow-[#B21941]/30 cursor-pointer"
+                className="btn-interactive bg-[#B21941] hover:bg-[#8e1233] text-white font-bold text-xs rounded-xl h-11 px-5 shadow-sm hover:shadow-[#B21941]/30 cursor-pointer"
               >
                 <a
                   href={`https://wa.me/${contactInfo.whatsapp}`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <MessageCircle className="size-4 mr-2" /> WhatsApp Executive Line
+                  <MessageCircle className="size-4 mr-2" /> WhatsApp Advisor Line
                 </a>
               </Button>
               <Button

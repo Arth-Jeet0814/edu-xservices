@@ -42,7 +42,7 @@ function CoursePage() {
             <Button
               size="lg"
               variant="outline"
-              className="border-white/40 bg-white/10 hover:bg-white/20 text-white hover:text-white font-bold text-sm backdrop-blur-md shadow-sm transition-all"
+              className="border-white/40 bg-white/10 hover:bg-white/20 text-white hover:text-white font-bold text-sm shadow-sm transition-all"
               onClick={() => toast.success("Brochure request sent. Check your inbox shortly.")}
             >
               <Download className="size-4 mr-2" /> Download Syllabus &amp; Overview
