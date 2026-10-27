@@ -1,4 +1,4 @@
-import founderImageFile from "@/assets/Konate-Djenabou-Diawara.png";
+import founderImageFile from "@/assets/konate-djenabou-diawara.png";
 
 // Static demo dataset. Shapes mirror the future CRM API payloads so these
 // modules can be swapped for fetchers without touching UI components.
